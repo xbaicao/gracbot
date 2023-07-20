@@ -9,7 +9,8 @@ function Yunzai()
 1.部署叽叽人
 2.启动
 3.关闭
-4.重置登录账号
+4.查看快捷键
+5.重置登录账号
 0.退出
 
 out
@@ -27,10 +28,16 @@ function YunzaiNum()
         2)
             Run
             ;;
-        3)
+
+        3)  
             Stop
             ;;
-        4)
+
+        4)  
+            Review
+            ;;
+
+        5)
             Reconfig
             ;;
         999)
@@ -273,3 +280,24 @@ else
     echo '当前运行环境不支持该操作'
     echo '手机端请确认进入容器，服务器请确认root'
 fi
+
+function Review()
+{
+	clear
+	echo '————————'
+	echo
+	echo '这里是所有快捷代码，一定要好好记住哦'
+	echo
+	echo '————————'
+	echo
+    echo -e "重新打开本脚本请输入：\033[47;31mcn\033[0m"
+    echo -e "启动机器人请输入\033[47;31myz\033[0m"
+    echo -e "机器人后台启动运行（即不显示代码启动）请输入：\033[47;31myzstart\033[0m"
+    echo -e "显示机器人日志请输入：\033[47;31myzlog\033[0m"
+    echo -e "停止机器人后台运行请输入：\033[47;31myzstop\033[0m"
+    echo
+    echo
+    read -s -n1 -p "按任意键或直接回车以返回"
+    Yunzai
+    YunzaiNum
+}
