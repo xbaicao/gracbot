@@ -39,7 +39,7 @@ function YunzaiNum()
         *)
             clear
             echo
-            figlet ?  ?  ?
+            figlet ?
             echo -e '\n'
             echo '你确定你输入对了?"
             sleep 3s
