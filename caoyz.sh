@@ -281,6 +281,7 @@ else
     echo '手机端请确认进入容器，服务器请确认root'
 fi
 
+#查看快捷键
 function Review()
 {
 	clear
