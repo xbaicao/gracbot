@@ -298,7 +298,7 @@ function Review()
     echo "停止叽叽人运行stop"
     echo
     echo
-    read -s -n1 -p "按任意键或者直接回车返回"
+    echo "按任意键或者直接回车返回"
     Yunzai
     YunzaiNum
 }
