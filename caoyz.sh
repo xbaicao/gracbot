@@ -214,9 +214,9 @@ function YunzaiBotInstall()
     echo echo 前台启动叽叽人等... > /usr/bin/qd
     sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
-    echo echo 后台启动中 > /usr/bin/htstart
-	sed -i -e '1a cd ~/Yunzai-Bot && pnpm start' /usr/bin/htstart
-	chmod 777 /usr/bin/htstart
+    echo echo 后台启动中 > /usr/bin/htqd
+	sed -i -e '1a cd ~/Yunzai-Bot && pnpm start' /usr/bin/htqd
+	chmod 777 /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm run log' /usr/bin/log 
     chmod 777 /usr/bin/log
@@ -291,14 +291,14 @@ function Review()
 	echo
 	echo '————————'
 	echo
-    echo -e "重新打开本脚本请输入：\033[47;31mcn\033[0m"
-    echo -e "启动机器人请输入\033[47;31myz\033[0m"
-    echo -e "机器人后台启动运行（即不显示代码启动）请输入：\033[47;31myzstart\033[0m"
-    echo -e "显示机器人日志请输入：\033[47;31myzlog\033[0m"
-    echo -e "停止机器人后台运行请输入：\033[47;31myzstop\033[0m"
+    echo -e "启动脚本快捷键bc"
+    echo -e "前台启动叽叽人qd"
+    echo -e "后台启动叽叽人htqd"
+    echo -e "查看叽叽人日志log"
+    echo -e "停止叽叽人运行stop"
     echo
     echo
-    read -s -n1 -p "按任意键或直接回车以返回"
+    read -s -n1 -p "按任意键或者直接回车返回"
     Yunzai
     YunzaiNum
 }
