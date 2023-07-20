@@ -8,7 +8,7 @@
 
 
 #### 安装教程
-## 手机端部署
+### 手机端部署
 ### 前期准备
 先下载下面两个软件(直接点击链接即可下载)
 - termux下载地址：https://f-droid.org/repo/com.termux_118.apk
@@ -22,7 +22,7 @@
 ```
 apt update && apt install curl -y
 ```
-2.  ### 执行以下代码一键安装脚本
+2.  ### 执行以下代码一键安装脚本（自备容器可直接复制粘贴，没有容器请先安装容器）
 ```
 bash <(curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/caoyz.sh)
 ```
