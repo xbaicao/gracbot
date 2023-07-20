@@ -262,6 +262,28 @@ function Stop()
 	fi
 }
 
+#查看快捷指令
+function Review()
+{
+	clear
+	echo '————————'
+	echo
+	echo '以下是快捷指令'
+	echo
+	echo '————————'
+	echo
+    echo -e "启动脚本快捷键\033[47;31mbc\033[0m"
+    echo -e "前台启动叽叽人\033[47;31mqd\033[0m"
+    echo -e "后台启动叽叽人\033[47;31mhtqd\033[0m"
+    echo -e "查看叽叽人日志\033[47;31mlog\033[0m"
+    echo -e "停止叽叽人运行\033[47;31mstop\033[0m"
+    echo
+    echo
+    read -s -n1 -p "按任意键或直接回车以返回"
+    Yunzai
+    YunzaiNum
+}
+
 #重置叽叽人QQ
 function Reconfig()
 {
@@ -280,25 +302,3 @@ else
     echo '当前运行环境不支持该操作'
     echo '手机端请确认进入容器，服务器请确认root'
 fi
-
-#查看快捷键
-function Review()
-{
-	clear
-	echo
-	echo
-	echo '以下是快捷指令'
-	echo
-	echo
-	echo
-    echo "启动脚本快捷键bc"
-    echo "前台启动叽叽人qd"
-    echo "后台启动叽叽人htqd"
-    echo "查看叽叽人日志log"
-    echo "停止叽叽人运行stop"
-    echo
-    echo
-    echo "按任意键或者直接回车返回"
-    Yunzai
-    YunzaiNum
-}
