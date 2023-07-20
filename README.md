@@ -18,7 +18,7 @@
 ```
  curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/u.sh | bash
 ```
-装完容器后按顺序输入如下代码并回车（更新）
+装完容器后按顺序输入以下代码并回车（更新）
 ```
 apt update && apt install curl -y
 ```
