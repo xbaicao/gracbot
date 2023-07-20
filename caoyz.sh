@@ -285,17 +285,17 @@ fi
 function Review()
 {
 	clear
-	echo '————————'
 	echo
-	echo '这里是所有快捷代码，一定要好好记住哦'
 	echo
-	echo '————————'
+	echo '以下是快捷指令'
 	echo
-    echo -e "启动脚本快捷键bc"
-    echo -e "前台启动叽叽人qd"
-    echo -e "后台启动叽叽人htqd"
-    echo -e "查看叽叽人日志log"
-    echo -e "停止叽叽人运行stop"
+	echo
+	echo
+    echo "启动脚本快捷键bc"
+    echo "前台启动叽叽人qd"
+    echo "后台启动叽叽人htqd"
+    echo "查看叽叽人日志log"
+    echo "停止叽叽人运行stop"
     echo
     echo
     read -s -n1 -p "按任意键或者直接回车返回"
