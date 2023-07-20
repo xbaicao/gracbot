@@ -37,11 +37,15 @@ function YunzaiNum()
             test
             ;;
         *)
-            clear
+           clear
             echo
-            figlet ?
-            echo -e '\n'
-            echo '你确定你输入对了?"
+            figlet ?  ?  ?
+            echo -e '\n\n\n'
+            echo '你确定你输对了ma'
+            echo
+            echo '你确定你输对了ma'
+            echo
+            echo '你确定你输对了ma'
             sleep 3s
             Yunzai
             YunzaiNum
