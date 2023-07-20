@@ -19,6 +19,7 @@
  curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/u.sh | bash
 ```
 装完容器后输入u进入容器，然后按顺序输入以下代码并回车（更新）
+## 务必先进入容器在执行操作!!!
 ```
 apt update && apt install curl -y
 ```
