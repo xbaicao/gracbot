@@ -74,30 +74,30 @@ function YunzaiBotInstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 	    #下载nodejs
-        git clone --depth=1 https://deb.nodesource.com/setup_18.x
+        git clone --depth=1 https://gitee.com/hunderd-cao/caoyz.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
-            cp 
-            rm -rf 
-            cd 
+            cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
+            rm -rf /root/node
+            cd /home/
             #解压
-            mkdir 
-            tar
-            rm -rf 
+            mkdir node17.9.0
+            tar -zxvf node-v17.9.0-linux-arm64.tar.gz -C node17.9.0 --strip-components 1
+            rm -rf node-v17.9.0-linux-arm64.tar.gz
         elif [ $(uname -m) == "x86_64" ]; then
-            cp 
-            rm -rf 
-            cd 
+            cp /root/node/node-v17.9.0-linux-x64.tar.gz /home/
+            rm -rf /root/node
+            cd /home/
             #解压
-            mkdir 
-            tar 
-            rm -rf 
+            mkdir node17.9.0
+            tar -zxvf node-v17.9.0-linux-x64.tar.gz -C node17.9.0 --strip-components 1
+            rm -rf node-v17.9.0-linux-x64.tar.gz
         fi
         
 #软链接
-        ln -sf /usr/local/bin
-        ln -sf /usr/local/bin
-        ln -sf /usr/local/bin
-        PATH=:$PATH
+        ln -sf /home/node17.9.0/bin/node /usr/local/bin
+        ln -sf /home/node17.9.0/bin/npm /usr/local/bin
+        ln -sf /home/node17.9.0/bin/npx /usr/local/bin
+        PATH=:/usr/local/node17.9.0/bin:$PATH
         if ! type npm >/dev/null 2>&1; then
             echo '安装失败了，重新用脚本试一下或者手装吧';
             exit
