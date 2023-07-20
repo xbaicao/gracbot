@@ -11,8 +11,8 @@
 #### 安装教程
 ### 手机端部署
 ### 前期准备
-先下载下面两个软件(直接点击链接即可下载)
-- termux下载地址：https://f-droid.org/repo/com.termux_118.apk
+安装下述软件，自助选择一下termux版本，建议选择0.118.0，直接点击链接可进入网址
+- termux下载地址:https://f-droid.org/zh_Hans/packages/com.termux/
 - 滑动验证助手下载地址：https://maupdate.rainchan.win/txcaptcha.apk
 
 1.  打开终端输入以下代码安装Ubuntu18.04
