@@ -100,7 +100,7 @@ function YunzaiBotInstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 	    #下载nodejs
-        git clone --depth=1 https://gitee.com/hundred-cao/caoyz.sh ./node/
+        git clone --depth=1 https://gitee.com/hundred-cao/caoyz.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
