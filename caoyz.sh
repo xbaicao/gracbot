@@ -385,3 +385,15 @@ function ffmpeginstall()
     Yunzai
     YunzaiNum
 }
+
+#figlet要用到，不管咋样装上好了
+    if ! type figlet >/dev/null 2>&1; then
+        apt-get update
+        apt-get install figlet -y
+    fi
+    Yunzai
+    YunzaiNum
+else
+    echo '当前运行环境不支持该操作'
+    echo '手机端请确认进入容器，服务器请确认root'
+fi
