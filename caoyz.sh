@@ -312,7 +312,7 @@ function resetbotqq()
     cd ~/Yunzai-Bot && pnpm run login
 }
 
-#figlet
+#figlet要用到，不管咋样装上好了
     if ! type figlet >/dev/null 2>&1; then
         apt-get update
         apt-get install figlet -y
