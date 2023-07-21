@@ -93,11 +93,13 @@ function yzinstall()
 {	
 	clear
 	echo '正在进行叽叽人部署，别断网了'
+    echo 'yunzai-install'
 	sleep 3s
 
     #git
     if ! type git >/dev/null 2>&1; then
         echo '准备安装git'
+        echo 'apt install git -y'
 	    sleep 0.5s
         apt update
         apt install git -y
@@ -154,6 +156,7 @@ function yzinstall()
 #redis
     if ! type redis-server >/dev/null 2>&1; then
         echo '安装并启动redis'
+        echo 'apt-get install redis -y && redis-server --daemonize yes --save 900 1 --save 300 10'
 	    sleep 0.5s
         apt-get install redis -y
         redis-server --daemonize yes --save 900 1 --save 300 10
@@ -211,6 +214,7 @@ function yzinstall()
 #安装依赖
     cd ~/Yunzai-Bot
 	echo '开始装依赖'
+    echo 'npm install pnpm -g'
 	sleep 1s
     npm install pnpm -g
 	ln -sf /home/node17.9.0/bin/pnpm /usr/local/bin
@@ -267,6 +271,7 @@ function start()
 	if [ -e /root/Yunzai-Bot ];then
     clear
     echo '叽叽人，启动!'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app'
 	sleep 1s
 	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app
 	else
@@ -282,6 +287,7 @@ function stop()
 {
 	if [ -e /root/Yunzai-Bot ];then
 	echo '正在关闭叽叽人'
+    echo 'cd ~/Yunzai-Bot && pnpm stop'    
 	sleep 1s
 	cd ~/Yunzai-Bot && pnpm stop
 	else
@@ -342,6 +348,7 @@ function htstart()
 	if [ -e /root/Yunzai-Bot ];then
     clear
     echo '叽叽人，启动!'
+    echo 'cd ~/Yunzai-Bot && pnpm start'
 	sleep 1s
 	cd ~/Yunzai-Bot && pnpm start
 	else
