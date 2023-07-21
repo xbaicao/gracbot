@@ -63,7 +63,7 @@ function YunzaiNum()
             resetmasterqq
             ;;
 
-        7）
+        7)
             htstart
             ;;
 
