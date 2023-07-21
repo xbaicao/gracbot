@@ -36,7 +36,7 @@ out
 }
 function YunzaiNum()
 {
-    read -p "输入对应数字" yunzaiNum
+    read -p "输入对应数字并回车_" yunzaiNum
     case $yunzaiNum in
 		0)
             exit 0
