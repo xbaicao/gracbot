@@ -12,9 +12,10 @@
 ### 手机端部署
 ### 前期准备
 安装下述软件，自助选择一下termux版本，建议选择0.118.0，直接点击链接可进入网址
-- termux下载地址:https://f-droid.org/zh_Hans/packages/com.termux/
+- termux(终端)下载地址:https://f-droid.org/zh_Hans/packages/com.termux/
 - 滑动验证助手下载地址：https://maupdate.rainchan.win/txcaptcha.apk
-
+- mt管理器(后续管理及配置文件需要)下载地址:https://mt2.cn/
+- 其他杂七杂八以及需要或者另外有用的app均可在qq群群文件找，没有的直接问百草要
 1.  打开终端输入以下代码安装Ubuntu18.04
 ```
  curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/u.sh | bash
