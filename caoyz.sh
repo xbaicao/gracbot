@@ -1,9 +1,5 @@
 #!/bin/bash
-#此脚本多处需要用到figlet，直接安装
-    if ! type figlet >/dev/null 2>&1; then
-        apt-get update
-        apt-get install figlet -y
-    fi
+
 echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
@@ -92,6 +88,13 @@ function YunzaiNum()
             ;;
     esac
 }
+
+#此脚本多处需要用到figlet，直接安装
+    if ! type figlet >/dev/null 2>&1; then
+        apt-get update
+        apt-get install figlet -y
+    fi
+    
 function yzinstall()
 {	
 	clear
