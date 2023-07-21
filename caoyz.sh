@@ -258,7 +258,7 @@ function yzinstall()
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/hunderd-cao/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod 777 /usr/bin/bc
    
 	clear
