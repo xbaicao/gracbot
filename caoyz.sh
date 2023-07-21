@@ -80,6 +80,7 @@ function YunzaiNum()
             figlet ?
             echo -e '\n'
             echo '你确定你输入对了ma'
+            echo
             sleep 1s
             Yunzai
             YunzaiNum
