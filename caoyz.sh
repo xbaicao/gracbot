@@ -26,6 +26,7 @@ function Yunzai()
 3.关闭
 4.查看快捷键
 5.重置登录账号
+6.更换主人QQ
 0.退出
 
 out
@@ -53,8 +54,13 @@ function YunzaiNum()
             ;;
 
         5)
-            reset
+            resetbotqq
             ;;
+
+        6)
+            resetmasterqq
+            ;;
+
         999)
             test
             ;;
@@ -300,7 +306,7 @@ function shortcuts()
 }
 
 #重置叽叽人QQ
-function reset()
+function resetbotqq()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
     cd ~/Yunzai-Bot && pnpm run login
@@ -317,3 +323,17 @@ else
     echo '当前运行环境不支持该操作'
     echo '手机端请确认进入容器，服务器请确认root'
 fi
+
+#更换主人QQ
+function resetmasterqq()
+{
+    cd ~/Yunzai-Bot/config/config
+    read -p '输入要更换的主人qq：' yourmasterQQ
+    sed -i '7d' other.yaml
+    sed -i "/masterQQ:/ a\  - \\$yourmasterQQ" other.yaml
+    sleep 1s
+    echo '已经修改成功咯'
+    sleep 1s
+	Yunzai
+	YunzaiNum
+}
