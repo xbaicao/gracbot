@@ -400,7 +400,4 @@ function ffmpeginstall()
     fi
     Yunzai
     YunzaiNum
-else
-    echo '当前运行环境不支持该操作'
-    echo '手机端请确认进入容器，服务器请确认root'
-fi
+    fi
