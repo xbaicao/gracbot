@@ -385,8 +385,3 @@ function ffmpeginstall()
     Yunzai
     YunzaiNum
 }
-#此脚本多处需要用到figlet，直接安装
-    if ! type figlet >/dev/null 2>&1; then
-        apt-get update
-        apt-get install figlet -y
-    fi
