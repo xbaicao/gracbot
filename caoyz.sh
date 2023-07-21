@@ -78,8 +78,9 @@ function YunzaiNum()
            clear
             echo
             figlet ?
-            echo '你确定你输对了ma'
-            sleep 3s
+            echo -e '\n'
+            echo '你确定你输入对了ma'
+            sleep 1s
             Yunzai
             YunzaiNum
             ;;
