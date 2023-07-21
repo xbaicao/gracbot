@@ -13,7 +13,7 @@ echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/hunderd-cao/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod 777 /usr/bin/bc
 cd ~
 
@@ -117,7 +117,7 @@ function yzinstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 	    #下载nodejs
-        git clone --depth=1 https://gitee.com/hundred-cao/caoyz.sh.git ./node/
+        git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
@@ -368,7 +368,7 @@ function ffmpeginstall()
     if ! type git >/dev/null 2>&1; then
         apt update && apt install git -y
     fi
-    git clone --depth=1 https://gitee.com/hundred-cao/caoyz.sh.git
+    git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git
     if [ $(uname -m) == "aarch64" ]; then
         cp /root/yunzai-ffmpeg/arm.tar.gz /home/
         rm -rf /root/yunzai-ffmpeg
