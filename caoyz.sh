@@ -94,6 +94,11 @@ function YunzaiNum()
         apt-get update
         apt-get install figlet -y
     fi
+    else
+    echo '运行环境不允许哦'
+    echo '手机用户请确认安装并进容器，服务器用户请确认root情况'
+fi
+
     
 function yzinstall()
 {	
