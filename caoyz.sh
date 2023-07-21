@@ -38,22 +38,22 @@ function YunzaiNum()
             exit 0
             ;;
         1)
-            YunzaiBotInstall
+            yzInstall
             ;;
         2)
-            Run
+            start
             ;;
 
         3)  
-            Stop
+            stop
             ;;
 
         4)  
-            Review
+            shortcuts
             ;;
 
         5)
-            Reconfig
+            reset
             ;;
         999)
             test
@@ -74,7 +74,7 @@ function YunzaiNum()
             ;;
     esac
 }
-function YunzaiBotInstall()
+function yzInstall()
 {	
 	clear
 	echo '正在进行叽叽人部署，别断网了'
@@ -247,7 +247,7 @@ function YunzaiBotInstall()
 }
 
 #启动叽叽人
-function Run()
+function start()
 {
 	if [ -e /root/Yunzai-Bot ];then
     clear
@@ -263,7 +263,7 @@ function Run()
 }
 
 #关闭叽叽人
-function Stop()
+function stop()
 {
 	if [ -e /root/Yunzai-Bot ];then
 	echo '正在关闭叽叽人'
@@ -278,7 +278,7 @@ function Stop()
 }
 
 #查看快捷指令
-function Review()
+function shortcuts()
 {
 	clear
 	echo '————————'
@@ -300,7 +300,7 @@ function Review()
 }
 
 #重置叽叽人QQ
-function Reconfig()
+function reset()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
     cd ~/Yunzai-Bot && pnpm run login
