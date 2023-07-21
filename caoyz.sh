@@ -27,6 +27,7 @@ function Yunzai()
 4.查看快捷键
 5.重置登录账号
 6.更换主人QQ
+7.后台启动叽叽人
 0.退出
 
 out
@@ -59,6 +60,10 @@ function YunzaiNum()
 
         6)
             resetmasterqq
+            ;;
+
+        7）
+            htstart
             ;;
 
         999)
@@ -336,4 +341,20 @@ function resetmasterqq()
     sleep 1s
 	Yunzai
 	YunzaiNum
+}
+
+#后台启动叽叽人
+function htstart()
+{
+	if [ -e /root/Yunzai-Bot ];then
+    clear
+    echo '叽叽人，启动!'
+	sleep 1s
+	cd ~/Yunzai-Bot && pnpm start
+	else
+	echo '先安装叽叽人再说吧！'
+	sleep 1s
+	Yunzai
+	YunzaiNum
+	fi
 }
