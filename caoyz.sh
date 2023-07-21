@@ -320,7 +320,7 @@ function shortcuts()
     YunzaiNum
 }
 
-#重置叽叽人QQ
+#重置叽叽人登录
 function resetbotqq()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
