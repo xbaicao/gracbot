@@ -28,6 +28,7 @@ function Yunzai()
 5.重置登录账号
 6.更换主人QQ
 7.后台启动叽叽人
+8.安装ffmpeg
 0.退出
 
 out
@@ -66,18 +67,15 @@ function YunzaiNum()
             htstart
             ;;
 
+        8)
+            ffmpeginstall
+            ;;
+
         999)
             test
             ;;
         *)
            clear
-            echo
-            figlet ?  ?  ?
-            echo -e '\n\n\n'
-            echo '你确定你输对了ma'
-            echo
-            echo '你确定你输对了ma'
-            echo
             echo '你确定你输对了ma'
             sleep 3s
             Yunzai
@@ -357,4 +355,38 @@ function htstart()
 	Yunzai
 	YunzaiNum
 	fi
+}
+
+#安装ffmpeg
+function ffmpeginstall()
+{
+    clear
+	echo '正在准备安装ffmpeg……'
+    sleep 0.5s
+    if ! type git >/dev/null 2>&1; then
+        apt update && apt install git -y
+    fi
+    git clone --depth=1 https://gitee.com/hundred-cao/caoyz.sh.git
+    if [ $(uname -m) == "aarch64" ]; then
+        cp /root/yunzai-ffmpeg/arm.tar.gz /home/
+        rm -rf /root/yunzai-ffmpeg
+        cd /home/
+        mkdir ffmpeg5.1.1
+        tar -xvf arm.tar.gz -C ffmpeg5.1.1 --strip-components 1
+        rm -rf arm.tar.gz
+    elif [ $(uname -m) == "x86_64" ]; then
+        cp /root/yunzai-ffmpeg/amd.tar.gz /home/
+        rm -rf /root/yunzai-ffmpeg
+        cd /home/
+        mkdir ffmpeg5.1.1
+        tar -xvf amd.tar.gz -C ffmpeg5.1.1 --strip-components 1
+        rm -rf amd.tar.gz
+    fi
+#软链接
+    ln -sf /home/ffmpeg5.1.1/ffmpeg /usr/local/bin/ffmpeg
+    ln -sf /home/ffmpeg5.1.1/ffprobe /usr/local/bin/ffprobe
+    echo 'ffmpeg安装完成'
+    echo -e 你的ffmpeg是：\\n$(ffmpeg -version)
+    Yunzai
+    YunzaiNum
 }
