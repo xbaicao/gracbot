@@ -1,14 +1,14 @@
 #!/bin/bash
-echo echo 前台启动叽叽人等... > /usr/bin/qd
+echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
-    echo echo 后台启动中 > /usr/bin/htqd
+    echo echo 后台启动中... > /usr/bin/htqd
 	sed -i -e '1a cd ~/Yunzai-Bot && pnpm start' /usr/bin/htqd
 	chmod 777 /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm run log' /usr/bin/log 
     chmod 777 /usr/bin/log
-    echo echo 停止叽叽人等下哦 > /usr/bin/stop
+    echo echo 停止叽叽人等下哦... > /usr/bin/stop
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
@@ -226,16 +226,16 @@ function YunzaiBotInstall()
     cd ~/Yunzai-Bot && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
     
 #启动快捷键 
-    echo echo 前台启动叽叽人等... > /usr/bin/qd
+    echo echo 前台启动redis.叽叽人等... > /usr/bin/qd
     sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
-    echo echo 后台启动中 > /usr/bin/htqd
+    echo echo 后台启动中... > /usr/bin/htqd
 	sed -i -e '1a cd ~/Yunzai-Bot && pnpm start' /usr/bin/htqd
 	chmod 777 /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm run log' /usr/bin/log 
     chmod 777 /usr/bin/log
-    echo echo 停止叽叽人等下哦 > /usr/bin/stop
+    echo echo 停止叽叽人等下哦 ...> /usr/bin/stop
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
