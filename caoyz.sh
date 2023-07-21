@@ -38,7 +38,7 @@ function YunzaiNum()
             exit 0
             ;;
         1)
-            yzInstall
+            yzinstall
             ;;
         2)
             start
@@ -74,7 +74,7 @@ function YunzaiNum()
             ;;
     esac
 }
-function yzInstall()
+function yzinstall()
 {	
 	clear
 	echo '正在进行叽叽人部署，别断网了'
