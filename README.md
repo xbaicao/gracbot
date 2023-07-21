@@ -27,7 +27,7 @@ apt update && apt install curl -y
 ```
 2.  ### 执行以下代码一键安装脚本（自备容器可直接复制粘贴，没有容器请先安装容器）
 ```
-bash <(curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/caoyz.sh)
+bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)
 ```
 3.  xxxx
 
