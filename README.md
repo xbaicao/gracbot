@@ -29,6 +29,8 @@ apt update && apt install curl -y
 ```
 bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)
 ```
+### bot想关索引详情请见(bot要用到的功能均来自插件)
+- https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index
 3.  xxxx
 
 #### 使用说明
