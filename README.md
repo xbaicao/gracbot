@@ -29,6 +29,7 @@ apt update && apt install curl -y
 ```
 bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)
 ```
+## 后续打开脚本快捷键bc(别忘了打开终端后先u进入容器)
 ### bot想关索引详情请见(bot要用到的功能均来自插件)
 - https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index
 3.  xxxx
