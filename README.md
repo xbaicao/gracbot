@@ -18,7 +18,7 @@
 - 其他杂七杂八以及需要或者另外有用的app均可在qq群群文件找，没有的直接问百草要
 1.  打开终端输入以下代码安装Ubuntu18.04
 ```
- curl -sL https://gitee.com/hundred-cao/caoyz.sh/raw/master/u.sh | bash
+ curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/u.sh | bash
 ```
 装完容器后输入u进入容器，然后按顺序输入以下代码并回车（更新）
 # 先输入u进入容器
