@@ -890,3 +890,5 @@ function loginfrequently()
         apt-get update
         apt-get install figlet -y
     fi
+        caoaboutYunzai
+        storagenumber
