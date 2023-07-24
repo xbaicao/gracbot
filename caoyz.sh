@@ -20,7 +20,7 @@ cd ~
 function Yunzai()
 {
 	clear
-    cat <<out
+    cat <<cao
 
 1.部署叽叽人
 2.启动
@@ -32,7 +32,7 @@ function Yunzai()
 8.安装ffmpeg
 0.退出
 
-out
+cao
 }
 function YunzaiNum()
 {
