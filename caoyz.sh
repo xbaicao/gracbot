@@ -35,6 +35,7 @@ function caoaboutYunzai()
 11.安装python3.10.0
 12.自建本地接口api签名（手机可部署）
 13.api签名使用方法
+99.报错237修复
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -96,6 +97,10 @@ function storagenumber()
 
         13)
             useapi
+            ;;
+
+        99)
+            237
             ;;
 
         00)
@@ -588,8 +593,8 @@ function QQ-repaire-list()
     
 1.修改端口与device文件
 2.修改端口与subid
-4.更新icqq（icqq版本4以上都是需要api签名的）
-5.api签名使用方法
+3.更新icqq（icqq版本4以上都是需要api签名的）
+4.api签名使用方法
 0.返回
 
 out
@@ -608,10 +613,10 @@ function QQ-repaire-num()
         2)
             subid
             ;;
-        4)
+        3)
             icqq
             ;;
-        5)
+        4)
             api
             ;;
         *)
@@ -858,6 +863,23 @@ function useapi()
     clear
     echo '在文件管理器中找到叽叽人根目录，找到config/config/bot.yaml打开并编辑，在末尾另起一行添加sign_api_addr:
 注意冒号后面有个空格，在后面添加上api签名地址，然后重启你的叽叽人就好啦'
+    read -s -n1 -p "按任意键或直接回车以返回"
+	caoaboutYunzai
+    storagenumber
+}
+
+function useapi()
+{
+    clear
+    echo
+    echo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo
+    echo
+    echo '想什么呢，237是登录频繁了，这可修复不了哦（手动狗头）'
+    echo
+    echo
+    echo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo
     read -s -n1 -p "按任意键或直接回车以返回"
 	caoaboutYunzai
     storagenumber
