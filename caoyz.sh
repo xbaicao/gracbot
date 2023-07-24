@@ -672,7 +672,6 @@ function icqq()
     cd ~/Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
-	fi
 	QQ-repaire-list
 	QQ-repaire-num
 }
