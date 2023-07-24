@@ -34,6 +34,7 @@ function caoaboutYunzai()
 10.安装ffmpeg
 11.安装python3.10.0
 12.自建本地接口api签名（手机可部署）
+13.api签名使用方法
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -91,6 +92,10 @@ function storagenumber()
 
         12)
             apisignature
+            ;;
+
+        13)
+            api
             ;;
 
         00)
@@ -630,9 +635,9 @@ function device()
     sed -i '/platform/d' /root/Yunzai-Bot/config/config/qq.yaml
     echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
     cd ~/Yunzai-Bot/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/fw-cn/Yunzai/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
-	read -p '是否立刻启动叽叽人，1启动，0不启动：' num
+	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
 		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app
 		exit
@@ -652,9 +657,9 @@ function subid()
     echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
     sed -i 's/537064315/537128930/' /root/Yunzai-Bot/node_modules/oicq/lib/core/device.js
     cd ~/Yunzai-Bot/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/fw-cn/Yunzai/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
-	read -p '是否立刻启动叽叽人，输入1启动，输入0不启动：' num
+	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
 		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app
 		exit
