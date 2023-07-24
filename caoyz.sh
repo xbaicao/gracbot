@@ -551,7 +551,7 @@ function pythoninstall3.10.0()
     apt update
     apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
 #下载python3.10.0压缩包
-    git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git
+    git clone --depth=1 https://gitee.com/cao100/caoyz.sh
     cp /root/Yunzai-Bot-Python3.10.0/Python-3.10.0.tgz /home/
     rm -rf Yunzai-Bot-Python3.10.0
     cd /home/
