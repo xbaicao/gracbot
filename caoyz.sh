@@ -74,7 +74,7 @@ function storagenumber()
             ;;
 
         00)
-            pnpm i
+            caotest
             ;;
 
         999)
