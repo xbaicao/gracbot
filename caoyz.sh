@@ -432,6 +432,8 @@ function pluginsindex()
     echo
     echo '————————————————————————————————————————————————————'
     echo
+    echo
+    echo
     read -s -n1 -p "按任意键或直接回车以返回"
     caoaboutYunzai
     storagenumber
