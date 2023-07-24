@@ -33,7 +33,7 @@ function caoaboutYunzai()
 9.报错处理
 10.安装ffmpeg
 11.安装python3.10.0
-12.自建本地接口api签名
+12.自建本地接口api签名（手机可部署）
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -87,6 +87,10 @@ function storagenumber()
 
         11)
             pythoninstall3.10.0
+            ;;
+
+        12)
+            apisignature
             ;;
 
         00)
@@ -525,7 +529,8 @@ function errorlist()
 2.cannot find package 'oicq'
 3.cannot find package 'icqq'
 4.puppeteer启动失败
-5.返回
+5.出现奇奇怪怪的东西，这里重装依赖尝试一下
+6.返回
 0.退出脚本
 
 run
@@ -549,7 +554,10 @@ function RepaireNum()
         4)
             puppeteer-false
             ;;
-		5)
+        5)
+            pnpminstall
+            ;;
+		6)
 			caoaboutYunzai
             storagenumber
 			;;
@@ -677,6 +685,15 @@ function icqq-repaire()
 	errorlist
 	RepaireNum
 }
+function pnpminstall()
+{
+    echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
+    cd && rm -rf Yunzai-Bot/node_modules && pnpm install
+    echo '已尝试进行解决'
+    sleep 2s
+	errorlist
+	RepaireNum
+}
 function puppeteer-false()
 {
     clear
@@ -796,6 +813,21 @@ function pythoninstall3.10.0()
     sleep 1.5s
 	caoaboutYunzai
     storagenumber
+}
+
+#自建本地接口api签名
+function apisignature()
+{
+	if [ -e /root/Yunzai-Bot ];then
+    clear
+    echo '我好懒，所以这里调用白狐自建脚本'
+    echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
+	sleep 1s
+	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
+	else
+	caoaboutYunzai
+	storagenumber
+	fi
 }
 
 #figlet要用到，不管咋样装上好了
