@@ -30,8 +30,10 @@ function caoaboutYunzai()
 6.更换主人QQ
 7.后台启动叽叽人
 8.插件管理
-9.安装ffmpeg
-10.安装python3.10.0
+9.报错处理
+10.安装ffmpeg
+11.安装python3.10.0
+12.自建本地接口api签名
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -74,12 +76,16 @@ function storagenumber()
         8)
             plugins
             ;;
-        
+
         9)
+            error
+            ;;
+        
+        10)
             ffmpeginstall
             ;;
 
-        10)
+        11)
             pythoninstall3.10.0
             ;;
 
@@ -374,7 +380,7 @@ function htstart()
 	fi
 }
 
-#插件
+#插件管理
 function plugins()
 {
 function PluginIndex()
@@ -419,7 +425,7 @@ function PluginIndexNum()
     esac
 }
 
-#索引
+#相关索引
 function pluginsindex()
 {
 	clear
@@ -505,6 +511,225 @@ else
     storagenumber
 fi
 
+}
+
+#报错处理
+
+function error()
+{
+function errorlist()
+{
+	clear
+    cat <<run
+1.QQ版本过低或禁止登录
+2.cannot find package 'oicq'
+3.cannot find package 'icqq'
+4.puppeteer启动失败
+5.返回
+0.退出脚本
+
+run
+}
+function RepaireNum()
+{
+    read -p '出现什么报错就选哪个：' repaireNum
+	case $repaireNum in
+        0)
+			exit
+            ;;
+        1)
+            QQ-repaire
+            ;;
+        2)
+            oicq-repaire
+            ;;
+        3)
+            icqq-repaire
+            ;;
+        4)
+            puppeteer-false
+            ;;
+		5)
+			caoaboutYunzai
+            storagenumber
+			;;
+        *)
+           clear
+            echo
+            figlet ?
+            echo -e '\n'
+            echo '你确定你输入对了ma'
+            echo
+            sleep 1s
+            errorlist
+            RepaireNum
+            ;;
+    esac
+}
+function QQ-repaire()
+{
+function QQ-repaire-list()
+{
+    clear
+    cat <<out
+1.修改端口与device文件
+2.修改端口与subid
+4.更新icqq
+0.返回
+
+}
+function QQ-repaire-num()
+{
+    read -p '请输入数字选项：' num
+    case $num in
+        0)
+            errorlist
+            RepaireNum
+            ;;
+        1)
+            device
+            ;;
+        2)
+            subid
+            ;;
+        4)
+            GG
+            ;;
+        *)
+           clear
+            echo
+            figlet ?
+            echo -e '\n'
+            echo '你确定你输入对了ma'
+            echo
+            sleep 1s
+            QQ-repaire-list
+            QQ-repaire-num
+            ;;
+    esac
+}
+
+function device()
+{
+	echo '如果执行该选项后仍然提示qq版本过低，请继续使用后续方案，或尝试进行扫码登录'
+	read -p '输入你的叽叽人的qq号并回车：' QQnumber
+    sed -i '/platform/d' /root/Yunzai-Bot/config/config/qq.yaml
+    echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
+    cd ~/Yunzai-Bot/data/$QQnumber
+    curl -o device-$QQnumber.json https://gitee.com/fw-cn/Yunzai/raw/master/QQrepaire
+	echo '已尝试进行修复'
+	read -p '是否立刻启动叽叽人，1启动，0不启动：' num
+	if [ $num == 1 ];then
+		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app
+		exit
+	else
+		echo '不启动叽叽人，请后续自行启动查看是否修复完成'
+		sleep 1s
+	fi
+	QQ-repaire-list
+	QQ-repaire-num
+}
+
+function subid()
+{
+    echo '如果该选项执行后仍然提示qq版本过低，请继续使用后续方案，或尝试进行扫码登录'
+    read -p '请输入你的叽叽人qq号并回车：' QQnumber
+    sed -i '/platform/d' /root/Yunzai-Bot/config/config/qq.yaml
+    echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
+    sed -i 's/537064315/537128930/' /root/Yunzai-Bot/node_modules/oicq/lib/core/device.js
+    cd ~/Yunzai-Bot/data/$QQnumber
+    curl -o device-$QQnumber.json https://gitee.com/fw-cn/Yunzai/raw/master/QQrepaire
+	echo '已尝试进行修复'
+	read -p '是否立刻启动叽叽人，输入1启动，输入0不启动：' num
+	if [ $num == 1 ];then
+		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Yunzai-Bot && node app
+		exit
+	else
+		echo '不启动叽叽人，请后续自行启动查看是否修复完成'
+		sleep 1s
+	fi
+	QQ-repaire-list
+	QQ-repaire-num
+}
+
+QQ-repaire-list
+QQ-repaire-num
+
+}
+
+function oicq-repaire()
+{
+    echo '正在尝试进行解决……'
+    cd ~/Yunzai-Bot && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
+    echo '已尝试进行解决'
+    sleep 2s
+	errorlist
+	RepaireNum
+}
+function icqq-repaire()
+{
+    echo '正在尝试进行解决……'
+    cd ~/Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    echo '已尝试进行解决'
+    sleep 2s
+	errorlist
+	RepaireNum
+}
+function puppeteer-false()
+{
+    clear
+    echo 请选择你的系统版本：
+    echo 1.ubuntu18.04
+    echo 2.ubuntu20.04
+    echo 3.ubuntu22.04
+    echo 4.不知道，这里为你自动检测
+    echo 0.返回
+    read -p '请输入数字并回车：' num
+    if [ $num == 1 ];then
+        cd root/Yunzai-Bot
+        git reset --hard origin/main
+        git checkout . && git pull
+        pnpm update
+        pnpm add puppeteer@13.7.0 -w
+    elif [ $num == 2 ] || [ $num == 3 ];then
+        cd root/Yunzai-Bot
+        git reset --hard origin/main
+        git checkout . && git pull
+        node ./node_modules/puppeteer/install.js
+        apt-get update
+        apt-get install ca-certificates fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils libxkbcommon0 -y
+    elif [ $num == 4 ];then
+        cd root/Yunzai-Bot
+        git reset --hard origin/main
+        git checkout . && git pull
+        pnpm update
+        pnpm add puppeteer@13.7.0 -w
+        echo 记住了，你的系统版本是ubuntu18.04
+        sleep 1.5s
+    elif [ $num == 0 ];then
+        errorlist
+	    RepaireNum
+    else
+            figlet ?
+            echo -e '\n'
+            echo '你确定你输入对了ma'
+            echo
+            sleep 1s
+            puppeteer-false
+    fi
+    echo 已经尝试修复，行不行看运气吧
+    sleep 1.5s
+}
+#报错处理列表运行
+if [ -e /root/Yunzai-Bot ]; then
+errorlist
+RepaireNum
+else
+echo 叽叽人没装，你到底要修复什么呢
+sleep 1.5s
+caoaboutYunzai
+storagenumber
+fi
 }
 
 #安装ffmpeg
