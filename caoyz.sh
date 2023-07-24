@@ -17,7 +17,7 @@ echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     chmod 777 /usr/bin/bc
 cd ~
 
-function Yunzai()
+function caoaboutYunzai()
 {
 	clear
     cat <<cao
@@ -34,10 +34,10 @@ function Yunzai()
 
 cao
 }
-function YunzaiNum()
+function storagenumber()
 {
-    read -p "输入对应数字并回车_" yunzaiNum
-    case $yunzaiNum in
+    read -p "输入对应数字并回车_" storagenumber
+    case $storagenumber in
 		0)
             exit 0
             ;;
@@ -83,8 +83,8 @@ function YunzaiNum()
             echo '你确定你输入对了ma'
             echo
             sleep 1s
-            Yunzai
-            YunzaiNum
+            caoaboutYunzai
+            storagenumber
             ;;
     esac
 }
@@ -96,7 +96,7 @@ function yzinstall()
     echo 'yunzai-install'
 	sleep 3s
 
-    #git
+#git
     if ! type git >/dev/null 2>&1; then
         echo '准备安装git'
         echo 'apt install git -y'
@@ -116,13 +116,13 @@ function yzinstall()
 		echo '看起来没装过，要装一下'
         echo '准备安装nodejs'
 	    sleep 0.5s
-	    #下载nodejs
+#下载nodejs
         git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
             cd /home/
-            #解压
+#解压
             mkdir node17.9.0
             tar -zxvf node-v17.9.0-linux-arm64.tar.gz -C node17.9.0 --strip-components 1
             rm -rf node-v17.9.0-linux-arm64.tar.gz
@@ -130,7 +130,7 @@ function yzinstall()
             cp /root/node/node-v17.9.0-linux-x64.tar.gz /home/
             rm -rf /root/node
             cd /home/
-            #解压
+#解压
             mkdir node17.9.0
             tar -zxvf node-v17.9.0-linux-x64.tar.gz -C node17.9.0 --strip-components 1
             rm -rf node-v17.9.0-linux-x64.tar.gz
@@ -222,7 +222,7 @@ function yzinstall()
     echo '叽叽人依赖成功部署'
 	sleep 1.5s
 	
-	#部署喵喵插件
+#部署喵喵插件
 	echo '准备装喵喵插件'
     sleep 1s
 	cd ~/Yunzai-Bot/plugins
@@ -277,8 +277,8 @@ function start()
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
-	Yunzai
-	YunzaiNum
+	caoaboutYunzai
+	storagenumber
 	fi
 }
 
@@ -293,8 +293,8 @@ function stop()
 	else
 	echo '你装叽叽人了吗?'
 	sleep 1s
-	Yunzai
-	YunzaiNum
+	caoaboutYunzai
+	storagenumber
 	fi
 }
 
@@ -316,8 +316,8 @@ function shortcuts()
     echo
     echo
     read -s -n1 -p "按任意键或直接回车以返回"
-    Yunzai
-    YunzaiNum
+    caoaboutYunzai
+    storagenumber
 }
 
 #重置叽叽人登录
@@ -338,8 +338,8 @@ function resetmasterqq()
     sleep 1s
     echo '已经修改成功咯'
     sleep 1s
-	Yunzai
-	YunzaiNum
+	caoaboutYunzai
+	storagenumber
 }
 
 #后台启动叽叽人
@@ -354,8 +354,8 @@ function htstart()
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
-	Yunzai
-	YunzaiNum
+	caoaboutYunzai
+	storagenumber
 	fi
 }
 
@@ -389,8 +389,8 @@ function ffmpeginstall()
     ln -sf /home/ffmpeg5.1.1/ffprobe /usr/local/bin/ffprobe
     echo 'ffmpeg安装完成'
     echo -e 你的ffmpeg是：\\n$(ffmpeg -version)
-    Yunzai
-    YunzaiNum
+    caoaboutYunzai
+    storagenumber
 }
 
 #figlet要用到，不管咋样装上好了
@@ -398,8 +398,8 @@ function ffmpeginstall()
         apt-get update
         apt-get install figlet -y
     fi
-    Yunzai
-    YunzaiNum
+    caoaboutYunzai
+    storagenumber
 else
     echo '不支持当前环境'
     echo '手机请确认是否进入容器，服务器请确认是否root'
