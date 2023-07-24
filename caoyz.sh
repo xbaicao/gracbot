@@ -424,7 +424,15 @@ function pluginsindex()
 	echo
 	echo '————————————————————————————————————————————————————'
 	echo
-    read -s -n1 -p "https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index"
+    echo
+    echo
+    echo '————————————————————————————————————————————————————'
+    echo
+    echo 'https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index'
+    echo
+    echo '————————————————————————————————————————————————————'
+    echo
+    read -s -n1 -p "按任意键或直接回车以返回"
     caoaboutYunzai
     storagenumber
 }
