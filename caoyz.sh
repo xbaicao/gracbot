@@ -104,6 +104,10 @@ function storagenumber()
             loginfrequently
             ;;
 
+        100)
+            rmaboutbot
+            ;;
+
         00)
             caotest
             ;;
@@ -528,7 +532,7 @@ fi
 
 }
 
-#报错处理
+#报错修复
 
 function error()
 {
@@ -859,6 +863,7 @@ function apisignature()
 	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
 }
 
+#使用api签名教程
 function useapi()
 {
     clear
@@ -869,6 +874,7 @@ function useapi()
     storagenumber
 }
 
+#237报错
 function loginfrequently()
 {
     clear
@@ -884,6 +890,28 @@ function loginfrequently()
     read -s -n1 -p "按任意键或直接回车以返回"
 	caoaboutYunzai
     storagenumber
+}
+
+#删库跑路
+function rmaboutbot()
+{
+    clear
+	echo '确定要删库跑路吗，你真的放得下吗，你真的忍心吗，请三思'
+	echo
+    echo '1-算了，返回	2-确定'
+	read -p '请输入数字后回车：' change
+	if [ $change == 1 ];then
+		caoaboutYunzai
+        storagenumber	
+	elif [ $change == 2 ];then
+		cd && rm -rf Yunzai-Bot
+        echo '已删除bot数据库' 
+        sleep 1s
+	else
+		echo '您输入的内容不是可用选项，即将退出'
+        sleep 3s
+		exit
+	fi		
 }
 
 #figlet要用到，不管咋样装上好了
