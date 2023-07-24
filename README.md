@@ -10,7 +10,7 @@
 
 ### 安装教程
 #### 手机端部署
-##### 前期准备
+#### 前期准备
 安装下述软件，自助选择一下termux版本，建议选择0.118.0，直接点击链接可进入网址
 - termux(终端)下载地址:https://f-droid.org/zh_Hans/packages/com.termux/
 - 滑动验证助手下载地址：https://maupdate.rainchan.win/txcaptcha.apk
