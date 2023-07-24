@@ -95,7 +95,7 @@ function storagenumber()
             ;;
 
         13)
-            api
+            useapi
             ;;
 
         00)
@@ -851,6 +851,16 @@ function apisignature()
     echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
 	sleep 1s
 	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
+}
+
+function useapi()
+{
+    clear
+    echo '在文件管理器中找到叽叽人根目录，找到config/config/bot.yaml打开并编辑，在末尾另起一行添加sign_api_addr:
+注意冒号后面有个空格，在后面添加上你的自建api签名地址，然后重启你的叽叽人就好啦'
+    read -s -n1 -p "按任意键或直接回车以返回"
+	caoaboutYunzai
+    storagenumber
 }
 
 #figlet要用到，不管咋样装上好了
