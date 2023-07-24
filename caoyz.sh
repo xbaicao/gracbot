@@ -525,7 +525,7 @@ function errorlist()
 {
 	clear
     cat <<run
-1.QQ版本过低或禁止登录
+1.QQ版本过低或禁止登录(45报错)
 2.cannot find package 'oicq'
 3.cannot find package 'icqq'
 4.puppeteer启动失败
@@ -583,7 +583,8 @@ function QQ-repaire-list()
     
 1.修改端口与device文件
 2.修改端口与subid
-4.更新icqq
+4.更新icqq（icqq版本4以上都是需要api签名的）
+5.api签名使用方法
 0.返回
 
 out
@@ -603,7 +604,10 @@ function QQ-repaire-num()
             subid
             ;;
         4)
-            GG
+            icqq
+            ;;
+        5)
+            api
             ;;
         *)
            clear
@@ -658,6 +662,27 @@ function subid()
 		echo '不启动叽叽人，请后续自行启动查看是否修复完成'
 		sleep 1s
 	fi
+	QQ-repaire-list
+	QQ-repaire-num
+}
+
+function icqq()
+{
+    echo '正在尝试进行解决……'
+    cd ~/Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    echo '已尝试进行解决'
+    sleep 2s
+	fi
+	QQ-repaire-list
+	QQ-repaire-num
+}
+
+function api()
+{
+    clear
+    echo '在文件管理器中找到叽叽人根目录，找到config/config/bot.yaml打开并编辑，在末尾另起一行添加sign_api_addr:
+注意冒号后面有个空格，在后面添加上你的自建api签名地址，然后重启你的叽叽人就好啦'
+    read -s -n1 -p "按任意键或直接回车以返回"
 	QQ-repaire-list
 	QQ-repaire-num
 }
