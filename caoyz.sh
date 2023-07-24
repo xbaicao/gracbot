@@ -370,7 +370,7 @@ function htstart()
 }
 
 #插件
-function Plugin()
+function plugins()
 {
 function PluginIndex()
 {
