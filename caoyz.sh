@@ -823,10 +823,6 @@ function apisignature()
     echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
 	sleep 1s
 	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
-	else
-	caoaboutYunzai
-	storagenumber
-	fi
 }
 
 #figlet要用到，不管咋样装上好了
