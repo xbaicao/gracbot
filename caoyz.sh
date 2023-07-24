@@ -31,6 +31,7 @@ function caoaboutYunzai()
 7.后台启动叽叽人
 8.插件管理
 9.安装ffmpeg
+10.安装python3.10.0
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -76,6 +77,10 @@ function storagenumber()
         
         9)
             ffmpeginstall
+            ;;
+
+        10)
+            pythoninstall3.10.0
             ;;
 
         00)
@@ -533,6 +538,37 @@ function ffmpeginstall()
     echo 'ffmpeg安装完成'
     echo -e 你的ffmpeg是：\\n$(ffmpeg -version)
     caoaboutYunzai
+    storagenumber
+}
+
+#安装python3.10.0
+function pythoninstall3.10.0()
+{
+    echo  '正在准备安装python3.10.0，时间要蛮久的哦，估计三十分钟左右，可以挂后台去干别的事情'
+    sleep 3s
+    cd ~
+#安装依赖
+    apt update
+    apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
+#下载python3.10.0压缩包
+    git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git
+    cp /root/Yunzai-Bot-Python3.10.0/Python-3.10.0.tgz /home/
+    rm -rf Yunzai-Bot-Python3.10.0
+    cd /home/
+#解压
+    tar -zxvf Python-3.10.0.tgz
+    cd Python-3.10.0
+    ./configure --enable-optimizations
+    make
+    make install
+    rm -rf Python-3.10.0.tgz
+#软链接
+    ln -sf /usr/local/bin/python3 /usr/bin/python
+    ln -sf /usr/local/bin/pip3 /usr/bin/pip
+    echo 'python3.10.0安装完成'
+    echo -e 当前默认python版本为$(python --version)
+    sleep 1.5s
+	caoaboutYunzai
     storagenumber
 }
 
