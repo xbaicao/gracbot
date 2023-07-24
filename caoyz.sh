@@ -572,6 +572,7 @@ function QQ-repaire-list()
 {
     clear
     cat <<out
+    
 1.修改端口与device文件
 2.修改端口与subid
 4.更新icqq
