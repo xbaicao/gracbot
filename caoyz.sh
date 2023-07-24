@@ -29,7 +29,7 @@ function caoaboutYunzai()
 5.重置叽叽人登录
 6.更换主人QQ
 7.后台启动叽叽人
-8.安装ffmpeg
+9.安装ffmpeg
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
 
@@ -68,8 +68,12 @@ function storagenumber()
         7)
             htstart
             ;;
-
+        
         8)
+            plugins
+            ;;
+        
+        9)
             ffmpeginstall
             ;;
 
@@ -307,11 +311,11 @@ function stop()
 function shortcuts()
 {
 	clear
-	echo '————————'
+	echo '——————————————'
 	echo
 	echo '以下是快捷指令'
 	echo
-	echo '————————'
+	echo '——————————————'
 	echo
     echo -e "启动脚本快捷键\033[47;31mbc\033[0m"
     echo -e "前台启动叽叽人\033[47;31mqd\033[0m"
@@ -362,6 +366,129 @@ function htstart()
 	caoaboutYunzai
 	storagenumber
 	fi
+}
+
+#插件
+function Plugin()
+{
+function PluginIndex()
+{
+	clear
+    cat <<cao
+0.退出脚本
+1.返回
+2.插件索引
+3.删除插件（git插件）
+4.
+cao
+}
+function PluginIndexNum()
+{
+	read -p '请输入数字选项并回车：' indexNum
+	case $indexNum in
+        0)
+			exit
+            ;;
+        1)
+            caoaboutYunzai
+            storagenumber
+            ;;
+        2)
+            pluginsindex
+            ;;
+		3)
+            deletegitplugin
+			;;
+        *)
+           clear
+            echo
+            figlet ?
+            echo -e '\n'
+            echo '你确定你输入对了ma'
+            echo
+            sleep 1s
+            PluginIndex
+            PluginIndexNum
+            ;;
+    esac
+}
+
+#索引
+function pluginsindex()
+{
+	clear
+	echo '————————————————————————————————————————————————————'
+	echo
+	echo 'bot想关索引详情请见如下网址(bot要用到的功能均来自插件)'
+	echo
+	echo '————————————————————————————————————————————————————'
+	echo
+    read -s -n1 -p "https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index"
+    caoaboutYunzai
+    storagenumber
+}
+
+#删除git插件
+
+function deletegitplugin()
+{
+	clear
+    echo -e '\n'
+	echo '以下是已安装的git插件'
+    echo -e '\n'
+    for file in `ls ~/Yunzai-Bot/plugins`;do
+        if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
+		    echo -e "\t\t\033[32m$file\033[0m"
+            echo
+        fi
+	done
+    echo
+    echo -e '\n'
+    echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
+    echo
+	read -p '删除前请确认是否删除，别不小心删错了：' pluginname
+	if [ -e ~/Yunzai-Bot/plugins/$pluginname ];then
+		rm -rf ~/Yunzai-Bot/plugins/$pluginname
+        echo
+		echo -e '正在删除'
+        sleep 1s
+		if [ -e ~/Yunzai-Bot/plugins/$pluginname ];then
+            echo
+			echo -e '删除失败，请重新执行或手动删除'
+			sleep 1.5s
+            PluginIndex
+            PluginIndexNum
+		else
+            echo
+			echo -e '删除成功'
+            sleep 1s
+            PluginIndex
+            PluginIndexNum
+			fi
+	elif [ $pluginname == 0 ];then
+        PluginIndex
+        PluginIndexNum
+    else
+        echo
+		echo '插件名称输错了吧，或者没有该插件，快去确认一下'
+		sleep 1s
+        deletegitplugin
+	fi
+}
+
+#判断项目再管理
+
+cd ~
+if  [ -e /root/Yunzai-Bot ];then
+    PluginIndex
+    PluginIndexNum
+else
+    echo "叽叽人都没装怎么管理插件呢"
+    sleep 1s
+    caoaboutYunzai
+    storagenumber
+fi
+
 }
 
 #安装ffmpeg
