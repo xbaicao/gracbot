@@ -685,7 +685,7 @@ function api()
 {
     clear
     echo '在文件管理器中找到叽叽人根目录，找到config/config/bot.yaml打开并编辑，在末尾另起一行添加sign_api_addr:
-注意冒号后面有个空格，在后面添加上你的自建api签名地址，然后重启你的叽叽人就好啦'
+注意冒号后面有个空格，在后面添加上api签名地址，然后重启你的叽叽人就好啦'
     read -s -n1 -p "按任意键或直接回车以返回"
 	QQ-repaire-list
 	QQ-repaire-num
@@ -857,7 +857,7 @@ function useapi()
 {
     clear
     echo '在文件管理器中找到叽叽人根目录，找到config/config/bot.yaml打开并编辑，在末尾另起一行添加sign_api_addr:
-注意冒号后面有个空格，在后面添加上你的自建api签名地址，然后重启你的叽叽人就好啦'
+注意冒号后面有个空格，在后面添加上api签名地址，然后重启你的叽叽人就好啦'
     read -s -n1 -p "按任意键或直接回车以返回"
 	caoaboutYunzai
     storagenumber
