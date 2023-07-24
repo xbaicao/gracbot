@@ -578,6 +578,7 @@ function QQ-repaire-list()
 4.更新icqq
 0.返回
 
+out
 }
 function QQ-repaire-num()
 {
