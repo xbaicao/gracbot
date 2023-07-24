@@ -908,7 +908,7 @@ function rmaboutbot()
         echo '已删除bot数据库' 
         sleep 1s
 	else
-		echo '您输入的内容不是可用选项，即将退出'
+		echo '请输入选项数字，即将退出'
         sleep 3s
 		exit
 	fi		
