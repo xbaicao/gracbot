@@ -31,6 +31,7 @@ function caoaboutYunzai()
 7.后台启动叽叽人
 8.安装ffmpeg
 0.退出
+00.此项为百草测试项，误点请ctrl+c退出
 
 cao
 }
@@ -70,6 +71,10 @@ function storagenumber()
 
         8)
             ffmpeginstall
+            ;;
+
+        00)
+            pnpm i
             ;;
 
         999)
