@@ -100,7 +100,7 @@ function storagenumber()
             ;;
 
         99)
-            237
+            loginfrequently
             ;;
 
         00)
@@ -868,7 +868,7 @@ function useapi()
     storagenumber
 }
 
-function useapi()
+function loginfrequently()
 {
     clear
     echo
