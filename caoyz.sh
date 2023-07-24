@@ -29,6 +29,7 @@ function caoaboutYunzai()
 5.重置叽叽人登录
 6.更换主人QQ
 7.后台启动叽叽人
+8.插件管理
 9.安装ffmpeg
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
