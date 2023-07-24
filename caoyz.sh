@@ -818,7 +818,6 @@ function pythoninstall3.10.0()
 #自建本地接口api签名
 function apisignature()
 {
-	if [ -e /root/Yunzai-Bot ];then
     clear
     echo '我好懒，所以这里调用白狐自建脚本'
     echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
