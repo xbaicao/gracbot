@@ -574,7 +574,7 @@ function deletejs()
     echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
     echo
 	read -p '删除前请确认是否删除，别不小心删错了：' jsname
-	if [ -e ~/Yunzai-Bot/plugins/example/$jsiname ];then
+	if [ -e ~/Yunzai-Bot/plugins/example/$jsname ];then
 		rm -rf ~/Yunzai-Bot/plugins/example/$jsname
         echo
 		echo -e '正在删除'
