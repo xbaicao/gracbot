@@ -410,7 +410,7 @@ function PluginIndex()
 1.返回
 2.插件索引
 3.删除插件（git插件）
-4.
+4.更新全部git插件
 cao
 }
 function PluginIndexNum()
@@ -430,6 +430,9 @@ function PluginIndexNum()
 		3)
             deletegitplugin
 			;;
+        4)
+            updateplugins
+            ;;
         *)
            clear
             echo
@@ -530,6 +533,25 @@ else
     storagenumber
 fi
 
+}
+
+#更新全部git插件
+function pnpminstall()
+{
+    clear
+    echo '正在更新所有插件'
+    cd && cd Yunzai-Bot/plugins
+    for d in */; do
+  (cd "$d" && git pull)
+  if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
+    last_commit_date=$(cd "$d" && git log -1 --format='%cd' --date=format:'%Y-%-m-%-d %H:%M')
+    echo "$d 最后更新时间 $last_commit_date"
+fi
+done
+    echo '已更新全部插件'
+    sleep 2s
+	errorlist
+	RepaireNum
 }
 
 #报错修复
