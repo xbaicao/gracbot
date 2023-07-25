@@ -468,8 +468,8 @@ function pluginsindex()
     echo
     echo
     read -s -n1 -p "按任意键或直接回车以返回"
-    caoaboutYunzai
-    storagenumber
+    PluginIndex
+    PluginIndexNum
 }
 
 #删除git插件
@@ -529,14 +529,14 @@ if  [ -e /root/Yunzai-Bot ];then
 else
     echo "叽叽人都没装怎么管理插件呢"
     sleep 1s
-    caoaboutYunzai
-    storagenumber
+    PluginIndex
+    PluginIndexNum
 fi
 
 }
 
 #更新全部git插件
-function pnpminstall()
+function updateplugins()
 {
     clear
     echo '正在更新所有插件'
@@ -550,8 +550,8 @@ fi
 done
     echo '已更新全部插件'
     sleep 2s
-	errorlist
-	RepaireNum
+	PluginIndex
+    PluginIndexNum
 }
 
 #报错修复
