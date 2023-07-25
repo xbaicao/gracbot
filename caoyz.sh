@@ -604,21 +604,6 @@ function deletejs()
 	fi
 }
 
-#判断项目再管理
-
-cd ~
-if  [ -e /root/Yunzai-Bot ];then
-    PluginIndex
-    PluginIndexNum
-else
-    echo "叽叽人都没装怎么管理插件呢"
-    sleep 1s
-    PluginIndex
-    PluginIndexNum
-fi
-
-}
-
 #报错修复
 function error()
 {
