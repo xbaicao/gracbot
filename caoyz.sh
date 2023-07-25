@@ -451,6 +451,20 @@ function PluginIndexNum()
     esac
 }
 
+#判断项目再管理
+cd ~
+if  [ -e /root/Yunzai-Bot ];then
+    PluginIndex
+    PluginIndexNum
+else
+    echo "叽叽人都没装怎么管理插件呢"
+    sleep 1s
+    caoaboutYunzai
+	storagenumber
+fi
+
+}
+
 #相关索引
 function pluginsindex()
 {
@@ -521,21 +535,6 @@ function deletegitplugin()
 		sleep 1s
         deletegitplugin
 	fi
-}
-
-#判断项目再管理
-
-cd ~
-if  [ -e /root/Yunzai-Bot ];then
-    PluginIndex
-    PluginIndexNum
-else
-    echo "叽叽人都没装怎么管理插件呢"
-    sleep 1s
-    PluginIndex
-    PluginIndexNum
-fi
-
 }
 
 #更新全部git插件
