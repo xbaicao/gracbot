@@ -565,7 +565,7 @@ function deletejs()
 	echo '以下是已安装的js插件'
     echo -e '\n'
     for file in `ls ~/Yunzai-Bot/plugins/example`;do
-        if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
+        if [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
 		    echo -e "\t\t\033[32m$file\033[0m"
             echo
         fi
