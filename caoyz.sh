@@ -576,7 +576,7 @@ function deletejs()
     echo
 	read -p '删除前请确认是否删除，别不小心删错了：' jsname
 	if [ -e ~/Yunzai-Bot/plugins/example/$jsiname ];then
-		rm -rf ~/Yunzai-Bot/plugins/example$jsname
+		rm -rf ~/Yunzai-Bot/plugins/example/$jsname
         echo
 		echo -e '正在删除'
         sleep 1s
