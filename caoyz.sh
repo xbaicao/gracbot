@@ -411,6 +411,7 @@ function PluginIndex()
 2.插件索引
 3.删除插件（git插件）
 4.更新全部git插件
+5.删除插件（js插件）
 cao
 }
 function PluginIndexNum()
@@ -432,6 +433,9 @@ function PluginIndexNum()
 			;;
         4)
             updateplugins
+            ;;
+        5)
+            deletejs
             ;;
         *)
            clear
@@ -473,7 +477,6 @@ function pluginsindex()
 }
 
 #删除git插件
-
 function deletegitplugin()
 {
 	clear
@@ -554,8 +557,69 @@ done
     PluginIndexNum
 }
 
-#报错修复
+#删除js插件
+function deletejs()
+{
+	clear
+    echo -e '\n'
+	echo '以下是已安装的js插件'
+    echo -e '\n'
+    for file in `ls ~/Yunzai-Bot/plugins/example`;do
+        if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
+		    echo -e "\t\t\033[32m$file\033[0m"
+            echo
+        fi
+	done
+    echo
+    echo -e '\n'
+    echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
+    echo
+	read -p '删除前请确认是否删除，别不小心删错了：' jsname
+	if [ -e ~/Yunzai-Bot/plugins/example/$jsiname ];then
+		rm -rf ~/Yunzai-Bot/plugins/example$jsname
+        echo
+		echo -e '正在删除'
+        sleep 1s
+		if [ -e ~/Yunzai-Bot/plugins/example/$jsname ];then
+            echo
+			echo -e '删除失败，请重新执行或手动删除'
+			sleep 1.5s
+            PluginIndex
+            PluginIndexNum
+		else
+            echo
+			echo -e '删除成功'
+            sleep 1s
+            PluginIndex
+            PluginIndexNum
+			fi
+	elif [ $jsname == 0 ];then
+        PluginIndex
+        PluginIndexNum
+    else
+        echo
+		echo '插件名称输错了吧，或者没有该插件，快去确认一下'
+		sleep 1s
+        deletejs
+	fi
+}
 
+#判断项目再管理
+
+cd ~
+if  [ -e /root/Yunzai-Bot ];then
+    PluginIndex
+    PluginIndexNum
+else
+    echo "叽叽人都没装怎么管理插件呢"
+    sleep 1s
+    PluginIndex
+    PluginIndexNum
+fi
+
+}
+
+#报错修复
 function error()
 {
 function errorlist()
