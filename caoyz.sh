@@ -499,7 +499,7 @@ function deletegitplugin()
     echo -e '\n'
     for file in `ls ~/Yunzai-Bot/plugins`;do
         if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
-		    echo -e "\t\t\033[32m$file\033[0m"
+		    echo -e "\t\t\033[34m$file\033[0m"
             echo
         fi
 	done
@@ -565,7 +565,7 @@ function deletejs()
     echo -e '\n'
     for file in `ls ~/Yunzai-Bot/plugins/example`;do
         if [ "$file" != "other" ];then
-		    echo -e "\t\t\033[32m$file\033[0m"
+		    echo -e "\t\t\033[36m$file\033[0m"
             echo
         fi
 	done
