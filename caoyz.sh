@@ -1004,9 +1004,9 @@ if [ $(id -u) == 0 ];then
     echo
     echo
     echo
+	read -p '请输入数字并回车：' change
     read -s -n1 -p "直接回车自动退出"
         exit
-	read -p '请输入数字并回车：' change
 	if [ $change == 1 ];then
 		caoaboutyunzai
         storagenumber
