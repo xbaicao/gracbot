@@ -38,7 +38,7 @@ bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
 ### 第一次启动bot时需要登陆qq，这里注意，不是密码输不了不让输，只是因为输密码时他是隐藏的，输了看不见很正常，建议复制粘贴以免输错
 ### bot想关索引详情请见如下网址(bot要用到的功能均来自插件)
 - https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index
-套模板写的帮助，懒得改，以下内容可忽略
+#####套模板写的帮助，懒得改，以下内容可忽略
 
 #### 使用说明
 
