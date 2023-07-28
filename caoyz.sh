@@ -507,7 +507,7 @@ function deletegitplugin()
     echo -e '\n'
     echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
     echo
-	read -p '删除前请确认是否删除，别不小心删错了：' pluginname
+	read -p '删除前请确认是否删除，别不小心删错了哦：' pluginname
 	if [ -e ~/Yunzai-Bot/plugins/$pluginname ];then
 		rm -rf ~/Yunzai-Bot/plugins/$pluginname
         echo
@@ -573,7 +573,7 @@ function deletejs()
     echo -e '\n'
     echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
     echo
-	read -p '删除前请确认是否删除，别不小心删错了：' jsname
+	read -p '删除前请确认是否删除，别不小心删错了哦：' jsname
 	if [ -e ~/Yunzai-Bot/plugins/example/$jsname ];then
 		rm -rf ~/Yunzai-Bot/plugins/example/$jsname
         echo
