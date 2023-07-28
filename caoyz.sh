@@ -814,20 +814,20 @@ function puppeteer-false()
     echo 0.返回
     read -p '请输入数字并回车：' num
     if [ $num == 1 ];then
-        cd root/Yunzai-Bot
+        cd Yunzai-Bot
         git reset --hard origin/main
         git checkout . && git pull
         pnpm update
         pnpm add puppeteer@13.7.0 -w
     elif [ $num == 2 ] || [ $num == 3 ];then
-        cd root/Yunzai-Bot
+        cd Yunzai-Bot
         git reset --hard origin/main
         git checkout . && git pull
         node ./node_modules/puppeteer/install.js
         apt-get update
         apt-get install ca-certificates fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils libxkbcommon0 -y
     elif [ $num == 4 ];then
-        cd root/Yunzai-Bot
+        cd Yunzai-Bot
         git reset --hard origin/main
         git checkout . && git pull
         pnpm update
@@ -849,7 +849,7 @@ function puppeteer-false()
     sleep 1.5s
 }
 #报错处理列表运行
-if [ -e /root/Yunzai-Bot ]; then
+if [ -e Yunzai-Bot ]; then
 errorlist
 RepaireNum
 else
