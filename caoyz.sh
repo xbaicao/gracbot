@@ -810,7 +810,7 @@ function puppeteer-false()
     echo 1.ubuntu18.04
     echo 2.ubuntu20.04
     echo 3.ubuntu22.04
-    echo 4.不知道，这里为你自动检测
+    echo 4.不知道？那这里为你自动检测
     echo 0.返回
     read -p '请输入数字并回车：' num
     if [ $num == 1 ];then
