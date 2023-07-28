@@ -849,7 +849,7 @@ function puppeteer-false()
     sleep 1.5s
 }
 #报错处理列表运行
-if [ -e root/Yunzai-Bot ]; then
+if [ -e /root/Yunzai-Bot ]; then
 errorlist
 RepaireNum
 else
