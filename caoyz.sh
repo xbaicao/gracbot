@@ -984,10 +984,37 @@ function rmaboutbot()
 	fi		
 }
 
+
 #figlet要用到，不管咋样装上好了
+if [ $(id -u) == 0 ];then
     if ! type figlet >/dev/null 2>&1; then
         apt-get update
         apt-get install figlet -y
     fi
-        caoaboutyunzai
+	clear
+    echo '阁下想用哪个叽叽人呢（作者我用的是云崽）'
+    echo
+    echo
+    echo
+    echo '1-云崽     2-喵崽'
+    echo '1-云崽     2-喵崽'
+    echo '1-云崽     2-喵崽'
+    echo '1-云崽     2-喵崽'
+    echo '1-云崽     2-喵崽'
+    echo
+    echo
+    echo
+	read -p '请输入数字并回车：' change
+	if [ $change == 1 ];then
+		caoaboutyunzai
         storagenumber
+	elif [ $change == 2 ];then
+		bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caomyz.sh)
+	else
+		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
+		exit
+	fi		
+else
+    echo '运行环境出现问题咯'
+    echo '手机用户确认容器状态，服务器用户确认root状态'
+fi
