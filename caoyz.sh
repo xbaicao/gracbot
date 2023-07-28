@@ -348,11 +348,11 @@ function shortcuts()
 	echo
 	echo '——————————————'
 	echo
-    echo -e "启动脚本快捷键\033[47;31mbc\033[0m"
-    echo -e "前台启动叽叽人\033[47;31mqd\033[0m"
-    echo -e "后台启动叽叽人\033[47;31mhtqd\033[0m"
-    echo -e "查看叽叽人日志\033[47;31mlog\033[0m"
-    echo -e "停止叽叽人运行\033[47;31mstop\033[0m"
+    echo -e "启动脚本快捷键\033[47;35mbc\033[0m"
+    echo -e "前台启动叽叽人\033[47;35mqd\033[0m"
+    echo -e "后台启动叽叽人\033[47;35mhtqd\033[0m"
+    echo -e "查看叽叽人日志\033[47;35mlog\033[0m"
+    echo -e "停止叽叽人运行\033[47;35mstop\033[0m"
     echo
     echo
     read -s -n1 -p "按任意键或直接回车以返回"
