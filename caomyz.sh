@@ -13,7 +13,7 @@ echo echo 前台启动rediis.喵版叽叽人等... > /usr/bin/mqd
     sed -i -e '1a cd ~/Miao-Yunzai && pnpm stop' /usr/bin/mstop
     chmod 777 /usr/bin/mstop
     echo echo 启动脚本中 > /usr/bin/bcm
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caomyz.sh)' /usr/bin/bcm
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)' /usr/bin/bcm
     chmod 777 /usr/bin/bcm
 cd ~
 
@@ -157,7 +157,7 @@ function miaoyzinstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 #下载nodejs
-        git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git ./node/
+        git clone --depth=1 https://gitee.com/cao100/caobot.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
@@ -331,7 +331,7 @@ function miaoyzinstall()
     sed -i -e '1a cd ~/Miao-Yunzai && pnpm stop' /usr/bin/mstop
     chmod 777 /usr/bin/mstop
     echo echo 启动脚本中 > /usr/bin/bcm
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bcm
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)' /usr/bin/bcm
     chmod 777 /usr/bin/bcm
    
 	clear
@@ -748,7 +748,7 @@ function device()
     sed -i '/platform/d' /root/Miao-Yunzai/config/config/qq.yaml
     echo platform: 4 >> /root/Miao-Yunzai/config/config/qq.yaml
     cd ~/Miao-Yunzai/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动喵版叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -770,7 +770,7 @@ function subid()
     echo platform: 4 >> /root/Miao-Yunzai/config/config/qq.yaml
     sed -i 's/537064315/537128930/' /root/Miao-Yunzai/node_modules/oicq/lib/core/device.js
     cd ~/Miao-Yunzai/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动喵版叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -902,7 +902,7 @@ function ffmpeginstall()
     if ! type git >/dev/null 2>&1; then
         apt update && apt install git -y
     fi
-    git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git
+    git clone --depth=1 https://gitee.com/cao100/caobot.sh.git
     if [ $(uname -m) == "aarch64" ]; then
         cp /root/yunzai-ffmpeg/arm.tar.gz /home/
         rm -rf /root/yunzai-ffmpeg
@@ -937,7 +937,7 @@ function pythoninstall3.10.0()
     apt update
     apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
 #下载python3.10.0压缩包
-    git clone --depth=1 https://gitee.com/cao100/caoyz.sh
+    git clone --depth=1 https://gitee.com/cao100/caobot.sh
     cp /root/caoyz.sh/Python-3.10.0.tgz /home/
     cd /home/
 #解压
