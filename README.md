@@ -39,7 +39,7 @@ bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
 ### bot想关索引详情请见如下网址(bot要用到的功能均来自插件)
 - https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index
 
-#####套模板写的帮助，懒得改，以下内容可忽略
+##### 套模板写的帮助，懒得改，以下内容可忽略
 
 #### 使用说明
 
