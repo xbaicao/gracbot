@@ -818,6 +818,7 @@ function puppeteer-false()
         git reset --hard origin/main
         git checkout . && git pull
         pnpm update
+        pnpm install
         pnpm add puppeteer@13.7.0 -w
     elif [ $num == 2 ] || [ $num == 3 ];then
         cd && cd root/Yunzai-Bot
@@ -831,6 +832,7 @@ function puppeteer-false()
         git reset --hard origin/main
         git checkout . && git pull
         pnpm update
+        pnpm install
         pnpm add puppeteer@13.7.0 -w
         echo 记住了，你的系统版本是ubuntu18.04
         sleep 1.5s
