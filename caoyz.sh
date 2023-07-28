@@ -1002,6 +1002,7 @@ if [ $(id -u) == 0 ];then
     echo '1-云崽     2-喵崽'
     echo '1-云崽     2-喵崽'
     echo
+    echo'3-除选项外任意键直接退出'
     echo
     echo
 	read -p '请输入数字并回车：' change
@@ -1010,9 +1011,10 @@ if [ $(id -u) == 0 ];then
         storagenumber
 	elif [ $change == 2 ];then
 		bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
-	else
-        read -s -n1 -p "直接回车自动退出"
+    else
+    elif [ $change == 3 ];then
 		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
+        read -s -n1 -p "直接回车自动退出"
 		exit
 	fi		
 else
