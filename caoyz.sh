@@ -1012,8 +1012,8 @@ if [ $(id -u) == 0 ];then
 	elif [ $change == 2 ];then
 		bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
     else
-		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
         read -s -n1 -p "直接回车自动退出"
+		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
 		exit
 	fi		
 else
