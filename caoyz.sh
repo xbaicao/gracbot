@@ -13,7 +13,7 @@ echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod 777 /usr/bin/bc
 cd ~
 
@@ -157,7 +157,7 @@ function yzinstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 #下载nodejs
-        git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git ./node/
+        git clone --depth=1 https://gitee.com/cao100/caobot.sh.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
@@ -298,7 +298,7 @@ function yzinstall()
     sed -i -e '1a cd ~/Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caoyz.sh)' /usr/bin/bc
+    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod 777 /usr/bin/bc
    
 	clear
@@ -715,7 +715,7 @@ function device()
     sed -i '/platform/d' /root/Yunzai-Bot/config/config/qq.yaml
     echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
     cd ~/Yunzai-Bot/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -737,7 +737,7 @@ function subid()
     echo platform: 4 >> /root/Yunzai-Bot/config/config/qq.yaml
     sed -i 's/537064315/537128930/' /root/Yunzai-Bot/node_modules/oicq/lib/core/device.js
     cd ~/Yunzai-Bot/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caoyz.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -869,7 +869,7 @@ function ffmpeginstall()
     if ! type git >/dev/null 2>&1; then
         apt update && apt install git -y
     fi
-    git clone --depth=1 https://gitee.com/cao100/caoyz.sh.git
+    git clone --depth=1 https://gitee.com/cao100/caobot.sh.git
     if [ $(uname -m) == "aarch64" ]; then
         cp /root/yunzai-ffmpeg/arm.tar.gz /home/
         rm -rf /root/yunzai-ffmpeg
@@ -904,7 +904,7 @@ function pythoninstall3.10.0()
     apt update
     apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
 #下载python3.10.0压缩包
-    git clone --depth=1 https://gitee.com/cao100/caoyz.sh
+    git clone --depth=1 https://gitee.com/cao100/caobot.sh
     cp /root/caoyz.sh/Python-3.10.0.tgz /home/
     cd /home/
 #解压
@@ -1009,7 +1009,7 @@ if [ $(id -u) == 0 ];then
 		caoaboutyunzai
         storagenumber
 	elif [ $change == 2 ];then
-		bash <(curl -sL https://gitee.com/cao100/caoyz.sh/raw/master/caomyz.sh)
+		bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
 	else
 		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
 		exit
