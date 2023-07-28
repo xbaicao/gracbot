@@ -1013,6 +1013,7 @@ if [ $(id -u) == 0 ];then
 		bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
     else
         read -s -n1 -p "直接回车自动退出"
+        clear
 		echo '你输入的不是有效数字，为您退出脚本（脚本启动快捷键bc）'
 		exit
 	fi		
