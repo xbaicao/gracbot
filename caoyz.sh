@@ -1002,7 +1002,7 @@ if [ $(id -u) == 0 ];then
     echo '1-云崽     2-喵崽'
     echo '1-云崽     2-喵崽'
     echo
-    echo'3-除选项外任意键直接退出'
+    echo '3-除选项外任意键直接退出'
     echo
     echo
 	read -p '请输入数字并回车：' change
