@@ -797,7 +797,7 @@ function icqq-repaire()
 function pnpminstall()
 {
     echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
-    cd && rm -rf Yunzai-Bot/node_modules && pnpm install
+    cd && rm -rf root/Yunzai-Bot/node_modules && cd Yunzai-Bot && pnpm install
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
