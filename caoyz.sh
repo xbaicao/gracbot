@@ -412,6 +412,7 @@ function PluginIndex()
 3.删除插件（git插件）
 4.更新全部git插件
 5.删除插件（js插件）
+6.插件安装教程
 cao
 }
 function PluginIndexNum()
@@ -436,6 +437,9 @@ function PluginIndexNum()
             ;;
         5)
             deletejs
+            ;;
+        6)
+            plugininstallhelp
             ;;
         *)
            clear
@@ -601,6 +605,24 @@ function deletejs()
 		sleep 1s
         deletejs
 	fi
+}
+
+#插件安装教程
+function plugininstallhelp()
+{
+	clear
+	echo
+    echo
+    echo 'git大插件：cd Yunzai-Bot 复制粘贴进入bot根目录之后，复制粘贴回车执行插件库里心仪的插件帮助中给的git克隆地址，然后耐心等待安装'
+    echo 'gitee是国内服务器，github是国外服务器，根据情况选择，推荐有gitee就用gitee'
+    echo
+    echo 'js插件：打开文件管理器，找到bot根目录，找到plugins，找到example，有js文件的直接把文件放进去，在插件库里找到的，下载zip压缩包，解压缩后放入example'
+    echo
+    echo
+    echo
+    read -s -n1 -p "按任意键或直接回车以返回"
+    PluginIndex
+    PluginIndexNum
 }
 
 #报错修复
