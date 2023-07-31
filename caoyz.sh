@@ -17,7 +17,7 @@ echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     chmod 777 /usr/bin/bc
 
 #定义云崽路径
-Yz=$(head -n 1 "${HOME}/.Yunzai")
+yzhome=$(head -n 1 "${HOME}/.Yunzai")
 
 cd ~
 
@@ -39,7 +39,8 @@ function caoaboutyunzai()
 11.安装python3.10.0
 12.自建本地接口api签名（手机可部署）
 13.api签名使用方法
-99.报错237修复
+14.报错237修复
+99.自定义bot路径
 100.一键卸载关于bot所有相关内容
 0.退出
 00.此项为百草测试项，误点请ctrl+c退出
@@ -104,12 +105,16 @@ function storagenumber()
             useapi
             ;;
 
-        99)
+        14)
             loginfrequently
             ;;
 
+        99)
+            yzhome
+            ;;
+
         100)
-            rmaboutbot
+            rmbot
             ;;
 
         00)
@@ -992,8 +997,50 @@ function loginfrequently()
     storagenumber
 }
 
+#自定义bot路径
+function yzhome()
+{
+    clear
+	# 获取主目录
+homedir=$(eval "echo ~${USER}")
+
+# 输出提示信息和分割线
+echo -e "\e[35m当前主目录下的云崽根目录\e[0m"
+echo -e "--------------------------------\e[1;32m"
+
+# 获取所有非隐藏、合法的 Yunzai-BOT 根目录名，并按名称排序
+dirs=$(find "${homedir}" -maxdepth 1 -type d ! -name ".*" -exec test -f '{}/lib/bot.js' ';' -print | sort)
+
+# 输出所有 Yunzai-BOT 根目录名，并使用 select 提供选择菜单
+PS3="请选择一个目录（输入 # 或 q 退出）："
+select dir in ${dirs}; do
+  case "$dir" in
+    "")
+      echo -e "\e[31m无效的目录编号，请重试！\e[0m"
+      ;;
+    "#"|"q")
+      echo "\e[32m已退出，未作更改\e[0m" > "${homedir}/.Yunzai"
+      exit
+      ;;
+    *)
+      if [ -d "${dir}/plugins" ]; then
+        echo "$dir" > "${homedir}/.Yunzai"
+        echo -e "\033[32m修改成功！\033[0m"
+        break
+      else
+        echo -e "\033[31m你选择的似乎不是一个 Yunzai-BOT 根目录，已取消修改\033[0m"
+        exit
+      fi
+      ;;
+  esac
+done
+    caoaboutyunzai
+    storagenumber
+}
+
+
 #删库跑路
-function rmaboutbot()
+function rmbot()
 {
     clear
 	echo '确定要删库跑路吗，你真的放得下吗，你真的忍心吗，请三思'
@@ -1013,7 +1060,6 @@ function rmaboutbot()
 		exit
 	fi		
 }
-
 
 #figlet要用到，不管咋样装上好了
 if [ $(id -u) == 0 ];then
