@@ -1,16 +1,16 @@
 #!/bin/bash
 
 echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app' /usr/bin/qd
+    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a cd ~/$yz && pnpm start' /usr/bin/htqd
+	sed -i -e '1a cd $yz && pnpm start' /usr/bin/htqd
 	chmod 777 /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
-    sed -i -e '1a cd ~/$yz && pnpm run log' /usr/bin/log 
+    sed -i -e '1a cd $yz && pnpm run log' /usr/bin/log 
     chmod 777 /usr/bin/log
     echo echo 停止叽叽人等下哦... > /usr/bin/stop
-    sed -i -e '1a cd ~/$yz && pnpm stop' /usr/bin/stop
+    sed -i -e '1a cd $yz && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
@@ -234,7 +234,7 @@ function yzinstall()
     fi
     
 #克隆项目
-    cd ~/
+    cd 
 	if [ -e $yz ];then
 		echo -e '已有叽叽人文件或同名文件\n请选择删除文件重新下载，或选择忽略'
 		read -p '输入1删除并重新下载，输入0忽略（别忘记回车）：' number
@@ -261,7 +261,7 @@ function yzinstall()
 	fi
 
 #安装依赖
-    cd ~/$yz
+    cd $yz
 	echo '开始装依赖'
     echo 'npm install pnpm -g'
 	sleep 1s
@@ -274,7 +274,7 @@ function yzinstall()
 #部署喵喵插件
 	echo '准备装喵喵插件'
     sleep 1s
-	cd ~/$yz/plugins
+	cd $yz/plugins
 	if  [ -e miao-plugin ];then
 	read -p '已经装过了，要删除重下吗，输入1重下，0忽略：' num
 		if [ $num == 0 ];then
@@ -291,20 +291,20 @@ function yzinstall()
 		echo '装好了'
 		sleep 1s
 	fi
-    cd ~/$yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
+    cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
     
 #启动快捷键 
     echo echo 前台启动redis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app' /usr/bin/qd
+    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
     chmod 777 /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a cd ~/$yz && pnpm start' /usr/bin/htqd
+	sed -i -e '1a cd $yz && pnpm start' /usr/bin/htqd
 	chmod 777 /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
-    sed -i -e '1a cd ~/$yz && pnpm run log' /usr/bin/log 
+    sed -i -e '1a cd $yz && pnpm run log' /usr/bin/log 
     chmod 777 /usr/bin/log
     echo echo 停止叽叽人等下哦 ...> /usr/bin/stop
-    sed -i -e '1a cd ~/$yz && pnpm stop' /usr/bin/stop
+    sed -i -e '1a cd $yz && pnpm stop' /usr/bin/stop
     chmod 777 /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
@@ -320,9 +320,9 @@ function start()
 	if [ -e /$yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app'
 	sleep 1s
-	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app
+	redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -336,9 +336,9 @@ function stop()
 {
 	if [ -e /$yz ];then
 	echo '正在关闭叽叽人'
-    echo 'cd ~/$yz && pnpm stop'    
+    echo 'cd $yz && pnpm stop'    
 	sleep 1s
-	cd ~/$yz && pnpm stop
+	cd $yz && pnpm stop
 	else
 	echo '你装叽叽人了吗?'
 	sleep 1s
@@ -373,14 +373,14 @@ function shortcuts()
 function resetbotqq()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
-    cd ~/$yz && pnpm run login
+    cd $yz && pnpm run login
 }
 
 
 #更换主人QQ
 function resetmasterqq()
 {
-    cd ~/$yz/config/config
+    cd $yz/config/config
     read -p '输入要更换的主人qq：' yourmasterQQ
     sed -i '7d' other.yaml
     sed -i "/masterQQ:/ a\  - \\$yourmasterQQ" other.yaml
@@ -397,9 +397,9 @@ function htstart()
 	if [ -e /$yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'cd ~/$yz && pnpm start'
+    echo 'cd $yz && pnpm start'
 	sleep 1s
-	cd ~/$yz && pnpm start
+	cd $yz && pnpm start
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -510,7 +510,7 @@ function deletegitplugin()
     echo -e '\n'
 	echo '以下是已安装的git插件'
     echo -e '\n'
-    for file in `ls ~/$yz/plugins`;do
+    for file in `ls $yz/plugins`;do
         if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
 		    echo -e "\t\t\033[34m$file\033[0m"
             echo
@@ -521,12 +521,12 @@ function deletegitplugin()
     echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
     echo
 	read -p '删除前请确认是否删除，别不小心删错了哦：' pluginname
-	if [ -e ~/$yz/plugins/$pluginname ];then
-		rm -rf ~/$yz/plugins/$pluginname
+	if [ -e $yz/plugins/$pluginname ];then
+		rm -rf $yz/plugins/$pluginname
         echo
 		echo -e '正在删除'
         sleep 1s
-		if [ -e ~/$yz/plugins/$pluginname ];then
+		if [ -e $yz/plugins/$pluginname ];then
             echo
 			echo -e '删除失败，请重新执行或手动删除'
 			sleep 1.5s
@@ -555,7 +555,7 @@ function updateplugins()
 {
     clear
     echo '正在更新所有插件'
-    cd && cd ~/$yz/plugins
+    cd && cd $yz/plugins
     for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
@@ -576,7 +576,7 @@ function deletejs()
     echo -e '\n'
 	echo '以下是已安装的js插件'
     echo -e '\n'
-    for file in `ls ~/$yz/plugins/example`;do
+    for file in `ls $yz/plugins/example`;do
         if [ "$file" != "other" ];then
 		    echo -e "\t\t\033[36m$file\033[0m"
             echo
@@ -587,12 +587,12 @@ function deletejs()
     echo '复制粘贴需要删除的插件名称，需要返回输入0并回车'
     echo
 	read -p '删除前请确认是否删除，别不小心删错了哦：' jsname
-	if [ -e ~/$yz/plugins/example/$jsname ];then
-		rm -rf ~/$yz/plugins/example/$jsname
+	if [ -e $yz/plugins/example/$jsname ];then
+		rm -rf $yz/plugins/example/$jsname
         echo
 		echo -e '正在删除'
         sleep 1s
-		if [ -e ~/$yz/plugins/example/$jsname ];then
+		if [ -e $yz/plugins/example/$jsname ];then
             echo
 			echo -e '删除失败，请重新执行或手动删除'
 			sleep 1.5s
@@ -622,7 +622,7 @@ function plugininstallhelp()
 	clear
 	echo
     echo
-    echo 'git大插件：cd ~/$yz 复制粘贴进入bot根目录之后，复制粘贴回车执行插件库里心仪的插件帮助中给的git克隆地址，然后耐心等待安装'
+    echo 'git大插件：cd $yz 复制粘贴进入bot根目录之后，复制粘贴回车执行插件库里心仪的插件帮助中给的git克隆地址，然后耐心等待安装'
     echo
     echo 'gitee是国内服务器，github是国外服务器，根据情况选择，推荐有gitee就用gitee'
     echo
@@ -747,12 +747,12 @@ function device()
 	read -p '输入你的叽叽人的qq号并回车：' QQnumber
     sed -i '/platform/d' /$yz/config/config/qq.yaml
     echo platform: 4 >> /$yz/config/config/qq.yaml
-    cd ~/$yz/data/$QQnumber
+    cd $yz/data/$QQnumber
     curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
-		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app
+		redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app
 		exit
 	else
 		echo '不启动叽叽人，请后续自行启动查看是否修复完成'
@@ -769,12 +769,12 @@ function subid()
     sed -i '/platform/d' /$yz/config/config/qq.yaml
     echo platform: 4 >> /$yz/config/config/qq.yaml
     sed -i 's/537064315/537128930/' /$yz/node_modules/oicq/lib/core/device.js
-    cd ~/$yz/data/$QQnumber
+    cd $yz/data/$QQnumber
     curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
-		redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/$yz && node app
+		redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app
 		exit
 	else
 		echo '不启动叽叽人，请后续自行启动查看是否修复完成'
@@ -787,7 +787,7 @@ function subid()
 function icqq()
 {
     echo '正在尝试进行解决……'
-    cd && cd ~/$yz && pnpm install && pnpm install icqq@latest -w
+    cd && cd $yz && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	QQ-repaire-list
@@ -812,7 +812,7 @@ QQ-repaire-num
 function oicq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd && cd ~/$yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
+    cd && cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -821,7 +821,7 @@ function oicq-repaire()
 function icqq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd && cd ~/$yz && pnpm install && pnpm install icqq@latest -w
+    cd && cd $yz && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -830,7 +830,7 @@ function icqq-repaire()
 function pnpminstall()
 {
     echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
-    cd && rm -rf $yz/node_modules && cd ~/$yz && pnpm install
+    cd && rm -rf $yz/node_modules && cd $yz && pnpm install
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
