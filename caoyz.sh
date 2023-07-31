@@ -510,7 +510,7 @@ function deletegitplugin()
     echo -e '\n'
 	echo '以下是已安装的git插件'
     echo -e '\n'
-    for file in `ls ~/$yz/plugins`;do
+    for file in `ls ~$yz/plugins`;do
         if [ "$file" != "example" ] && [ "$file" != "other" ] && [ "$file" != "system" ] && [ "$file" != "genshin" ];then
 		    echo -e "\t\t\033[34m$file\033[0m"
             echo
