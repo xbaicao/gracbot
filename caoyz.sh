@@ -618,7 +618,7 @@ function plugininstallhelp()
     echo 'gitee是国内服务器，github是国外服务器，根据情况选择，推荐有gitee就用gitee'
     echo
     echo
-    echo 'js插件：打开文件管理器，找到bot根目录，找到plugins，找到example，有js文件的直接把文件放进去，在插件库里找到的，下载zip压缩包，解压缩后放入example'
+    echo 'js插件：打开文件管理器，找到bot根目录，找到plugins，找到example，有js文件的直接把文件放进去，在插件库里找到的，下载zip压缩包，解压缩后放入example（手机用户找不到克隆/下载选项的，在浏览器找到并打开电脑模式/电脑网站/访问电脑版网页）'
     echo
     echo
     echo
