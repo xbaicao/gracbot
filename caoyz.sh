@@ -15,6 +15,10 @@ echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod 777 /usr/bin/bc
+
+#定义云崽路径
+Yz=$(head -n 1 "${HOME}/.Yunzai")
+
 cd ~
 
 function caoaboutyunzai()
