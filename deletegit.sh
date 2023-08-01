@@ -70,7 +70,7 @@ for chosen_dir in "${chosen_dirs[@]}"; do
     printf "%s\n" "$chosen_dir"
 done
 
-echo -e "\n是否继续删除？\e[34m[Y/N]\e[0m "
+echo -e "\n是否继续删除？\e[36m[Y/N]\e[0m "
 read -r confirm
 if [[ ! $confirm =~ ^[Yy]$ ]]; then
     echo -e "\e[36m删除操作已取消\e[0m"
