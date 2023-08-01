@@ -305,6 +305,10 @@ function yzinstall()
 		sleep 1s
 	fi
     cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
+    echo '装一下依赖'
+    cd
+    cd ~/Yunzai-Bot
+    pnpm install
 	clear
     caoaboutyunzai
     storagenumber
