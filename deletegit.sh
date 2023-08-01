@@ -21,16 +21,16 @@ EXCLUDED_DIRS=("example" "genshin" "system" "other" "bin")
 
 
 # 获取所有插件目录
-    plugin_dirs=()
-    counter=1
-    while IFS= read -r folder; do
+plugin_dirs=()
+counter=1
+while IFS= read -r folder; do
     folder_name=$(basename "$folder")
     if [[ ! "${EXCLUDED_DIRS[@]}" =~ "$folder_name" ]]; then
         plugin_dirs+=("$folder")
-        printf "%d. %s\n" "$counter" "$folder_name"
+        printf "\e[34m%d.\e[0m \e[34m%s\e[0m\n" "$counter" "$folder_name"
         counter=$((counter+1))
     fi
-    done < <(find "$YUNZAI_PATH/plugins" -mindepth 1 -maxdepth 1 -type d)
+done < <(find "$YUNZAI_PATH/plugins" -mindepth 1 -maxdepth 1 -type d)
 
     # 用户选择要删除的序号并确认
     if [ ${#plugin_dirs[@]} -eq 0 ]; then
