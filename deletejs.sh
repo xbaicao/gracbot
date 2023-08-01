@@ -2,9 +2,9 @@
 
 #初始化加载
 if [ -f "$HOME/.Yunzai" ]; then
-  echo -e "\033[32m校验成功\033[0m"
+  echo -e "\033[36m校验成功\033[0m"
 else
-  echo -e "\033[33m初始化文件中\033[0m"
+  echo -e "\033[36m初始化文件中\033[0m"
   sleep 0.3
   echo "/root/Yunzai-Bot" > "$HOME/.Yunzai"
 fi
@@ -15,7 +15,7 @@ cd $Yz
 
 clear
 
-echo -e "\033[1;32m已安装的js插件：\033[0m"
+echo -e "\033[1;36m已安装的js插件：\033[0m"
 echo
 # 读取目录中的文件，并为每个文件标上序号
 files=(plugins/example/*)
@@ -58,7 +58,7 @@ if [[ $confirmation =~ ^([yY]|[yY][eE][sS])$ ]]; then
         fi
     done
     # 输出删除成功信息
-    echo -en "\033[32m 卸载完成 回车返回\033[0m";read -p ""
+    echo -en "\033[36m 卸载完成 回车返回\033[0m";read -p ""
 else
     echo -en "操作已取消。回车退出..";read -p ""
     exit 0
