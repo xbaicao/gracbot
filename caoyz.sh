@@ -496,7 +496,7 @@ function deletegitplugin()
     bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletegit.sh)
         PluginIndex
         PluginIndexNum
-	fi
+	
 }
 
 #更新全部git插件
@@ -527,7 +527,7 @@ function deletejs()
     bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletejs.sh)
         PluginIndex
         PluginIndexNum
-	fi
+	
 }
 
 #插件安装教程
