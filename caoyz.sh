@@ -219,13 +219,13 @@ function yzinstall()
     
 #克隆项目
     cd 
-	if [ -e root/Yunzai-Bot ];then
+	if [ -e Yunzai-Bot ];then
 		echo -e '已有叽叽人文件或同名文件\n请选择删除文件重新下载，或选择忽略'
 		read -p '输入1删除并重新下载，输入0忽略（别忘记回车）：' number
 		if [ $number == 1 ];then
 			#删除文件夹
 			echo '正在删除已有文件……'
-			rm -rf root/Yunzai-Bot
+			rm -rf Yunzai-Bot
 			echo '删除完成'
 			sleep 1s
 			echo '重新部署叽叽人项目'
@@ -245,7 +245,7 @@ function yzinstall()
 	fi
 
 #安装依赖
-    cd root/Yunzai-Bot
+    cd Yunzai-Bot
 	echo '开始装依赖'
     echo 'npm install pnpm -g'
 	sleep 1s
@@ -258,7 +258,7 @@ function yzinstall()
 #部署喵喵插件
 	echo '准备装喵喵插件'
     sleep 1s
-	cd root/Yunzai-Bot/plugins
+	cd Yunzai-Bot/plugins
 	if  [ -e miao-plugin ];then
 	read -p '已经装过了，要删除重下吗，输入1重下，0忽略：' num
 		if [ $num == 0 ];then
