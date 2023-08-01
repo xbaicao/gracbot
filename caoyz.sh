@@ -274,7 +274,7 @@ function yzinstall()
 	fi
 
 #安装依赖
-    cd Yunzai-Bot
+    cd ~/Yunzai-Bot
 	echo '开始装依赖'
     echo 'npm install pnpm -g'
 	sleep 1s
@@ -287,7 +287,7 @@ function yzinstall()
 #部署喵喵插件
 	echo '准备装喵喵插件'
     sleep 1s
-	cd Yunzai-Bot/plugins
+	cd ~/Yunzai-Bot/plugins
 	if  [ -e miao-plugin ];then
 	read -p '已经装过了，要删除重下吗，输入1重下，0忽略：' num
 		if [ $num == 0 ];then
