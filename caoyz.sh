@@ -1,23 +1,52 @@
 #!/bin/bash
 
+target_file="$HOME/.Yunzai"
+
+if [ -f "$target_file" ]; then
+  echo -e "\033[32m校验成功\033[0m"
+else
+  echo -e "\033[33m初始化文件中\033[0m"
+  sleep 0.3
+
+  # 指定可能的文件列表，按优先级排序
+  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai")
+
+  # 遍历文件列表，找到存在的文件并写入目标文件
+  for file in "${files[@]}"; do
+    if [ -f "$file" ]; then
+      echo "$file" > "$target_file"
+      break
+    fi
+  done
+
+  if [ ! -f "$target_file" ]; then
+    rm -f "$target_file"
+    # 如果都找不到，直接跳过写入留空
+  fi
+fi
+#定义bot路径
+yz=$(head -n 1 "${HOME}/.Yunzai")
+ 
+#写入快捷键
 echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
-    chmod 777 /usr/bin/qd
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app' /usr/bin/qd
+    chmod +x /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a cd $yz && pnpm start' /usr/bin/htqd
-	chmod 777 /usr/bin/htqd
+	sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm start' /usr/bin/htqd
+	chmod +x /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
-    sed -i -e '1a cd $yz && pnpm run log' /usr/bin/log 
-    chmod 777 /usr/bin/log
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm run log' /usr/bin/log 
+    chmod +x /usr/bin/log
     echo echo 停止叽叽人等下哦... > /usr/bin/stop
-    sed -i -e '1a cd $yz && pnpm stop' /usr/bin/stop
-    chmod 777 /usr/bin/stop
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm stop' /usr/bin/stop
+    chmod +x /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
-    chmod 777 /usr/bin/bc
-
-#定义云崽路径
-yz=$(head -n 1 "${HOME}/.Yunzai")
+    chmod +x /usr/bin/bc
+    echo echo 已进入bot根目录 > /usr/bin/bot
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && exec bash -i' /usr/bin/bot
+    chmod +x /usr/bin/bot
 
 cd ~
 
@@ -276,26 +305,9 @@ function yzinstall()
 		sleep 1s
 	fi
     cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
-    
-#启动快捷键 
-    echo echo 前台启动redis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
-    chmod 777 /usr/bin/qd
-    echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a cd $yz && pnpm start' /usr/bin/htqd
-	chmod 777 /usr/bin/htqd
-    echo echo 查看log > /usr/bin/log
-    sed -i -e '1a cd $yz && pnpm run log' /usr/bin/log 
-    chmod 777 /usr/bin/log
-    echo echo 停止叽叽人等下哦 ...> /usr/bin/stop
-    sed -i -e '1a cd $yz && pnpm stop' /usr/bin/stop
-    chmod 777 /usr/bin/stop
-    echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
-    chmod 777 /usr/bin/bc
-   
 	clear
-    exit
+    caoaboutyunzai
+    storagenumber
 }
 
 #启动叽叽人
@@ -304,9 +316,9 @@ function start()
 	if [ -e /$yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app'
 	sleep 1s
-	redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app
+	redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
