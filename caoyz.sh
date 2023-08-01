@@ -225,7 +225,7 @@ function yzinstall()
 		if [ $number == 1 ];then
 			#删除文件夹
 			echo '正在删除已有文件……'
-			rm -rf $yz
+			rm -rf root/Yunzai-Bot
 			echo '删除完成'
 			sleep 1s
 			echo '重新部署叽叽人项目'
