@@ -219,7 +219,7 @@ function yzinstall()
     
 #克隆项目
     cd 
-	if [ -e $yz ];then
+	if [ -e root/Yunzai-Bot ];then
 		echo -e '已有叽叽人文件或同名文件\n请选择删除文件重新下载，或选择忽略'
 		read -p '输入1删除并重新下载，输入0忽略（别忘记回车）：' number
 		if [ $number == 1 ];then
