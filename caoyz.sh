@@ -245,7 +245,7 @@ function yzinstall()
 	fi
 
 #安装依赖
-    cd $yz
+    cd root/Yunzai-Bot
 	echo '开始装依赖'
     echo 'npm install pnpm -g'
 	sleep 1s
