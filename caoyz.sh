@@ -26,7 +26,7 @@ function caoaboutyunzai()
 	clear
     cat <<cao
 
-1.部署叽叽人
+1.部署叽叽人(云崽)
 2.启动
 3.关闭
 4.查看快捷键
