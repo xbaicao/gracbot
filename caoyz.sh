@@ -9,7 +9,7 @@ else
   sleep 0.3
 
   # 指定可能的文件列表，按优先级排序
-  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai")
+  files=("/root/Yunzai-Bot/" "/root/.fox@bot/Yunzai-Bot/" "/root/Miao-Yunzai/" "/root/.fox@bot/Miao-Yunzai/" "/root/TRSS-Yunzai/" "/root/.fox@bot/TRSS-Yunzai/")
 
   # 遍历文件列表，找到存在的文件并写入目标文件
   for file in "${files[@]}"; do
