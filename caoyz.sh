@@ -29,8 +29,8 @@ yz=$(head -n 1 "${HOME}/.Yunzai")
  
 #写入快捷键
 echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd $yz && node app' /usr/bin/qd
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app' /usr/bin/qd
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
     chmod +x /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
 	sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm start' /usr/bin/htqd
@@ -317,12 +317,12 @@ function yzinstall()
 #启动叽叽人
 function start()
 {
-	if [ -e /$yz ];then
+	if [ -e $yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app'
 	sleep 1s
-	redis-server --daemonize yes --save 900 1 --save 300 10 && cd && cd $yz && node app
+	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
