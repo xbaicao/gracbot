@@ -29,23 +29,23 @@ yz=$(head -n 1 "${HOME}/.Yunzai")
  
 #写入快捷键
 echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
+    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
+    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && node app' /usr/bin/qd
     chmod +x /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm start' /usr/bin/htqd
+	sed -i -e '1a cd ~ && cd $yz && pnpm start' /usr/bin/htqd
 	chmod +x /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm run log' /usr/bin/log 
+    sed -i -e '1a cd $yz && pnpm run log' /usr/bin/log 
     chmod +x /usr/bin/log
     echo echo 停止叽叽人等下哦... > /usr/bin/stop
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && pnpm stop' /usr/bin/stop
+    sed -i -e '1a cd $yz && pnpm stop' /usr/bin/stop
     chmod +x /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod +x /usr/bin/bc
     echo echo 已进入bot根目录 > /usr/bin/bot
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd $yz && exec bash -i' /usr/bin/bot
+    sed -i -e '1a cd $yz && exec bash -i' /usr/bin/bot
     chmod +x /usr/bin/bot
 
 cd ~
