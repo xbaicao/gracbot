@@ -22,7 +22,7 @@ function caoaboutmiaoyunzai()
 	clear
     cat <<cao
 
-1.部署喵版喵版叽叽人
+1.部署喵版叽叽人
 2.启动
 3.关闭
 
