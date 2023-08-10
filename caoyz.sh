@@ -1000,15 +1000,15 @@ if [ $(id -u) == 0 ];then
         apt-get install figlet -y
     fi
 	clear
-    echo '阁下想用哪个叽叽人呢（作者我用的是云崽）'
+    echo '阁下想安装哪个叽叽人呢（作者我用的是云崽）'
     echo
     echo
     echo
-    echo '1-云崽     2-喵崽'
-    echo '1-云崽     2-喵崽'
-    echo '1-云崽     2-喵崽'
-    echo '1-云崽     2-喵崽'
-    echo '1-云崽     2-喵崽'
+    echo '1-bot管理and云崽安装     2-喵崽安装'
+    echo '1-bot管理and云崽安装     2-喵崽安装'
+    echo '1-bot管理and云崽安装     2-喵崽安装'
+    echo '1-bot管理and云崽安装     2-喵崽安装'
+    echo '1-bot管理and云崽安装     2-喵崽安装'
     echo
     echo '3-除选项外任意键直接退出'
     echo
