@@ -950,7 +950,7 @@ select dir in ${dirs}; do
     "")
       echo -e "\e[31m无效的目录编号，请重试！\e[0m"
       ;;
-    -)
+    "-")
       echo "\e[32m已退出，未作更改\e[0m" > "${homedir}/.Yunzai"
       exit
       ;;
