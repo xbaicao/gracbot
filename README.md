@@ -46,8 +46,50 @@ bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)
 
 ##### 套模板写的帮助，懒得改，以下内容可忽略
 
-#### 电脑端部署（需要win10以上的系统
+#### 电脑端以及服务器端部署（需要win10以上的系统）（服务器端直接看sudo -i开始的教程）
 
 #### 前期准备
 
+打开左下角win图标
+
 ![输入图片说明](SharedScreenshot.jpg)
+
+##### 打开设置，搜索控制面板
+
+![输入图片说明](2.jpg)
+
+##### 打开控制面板，点击程序
+
+![输入图片说明](3.jpg)
+
+##### 点击启用或关闭windows功能，找到并勾选适用于Linux的Windows子系统，如图
+
+![输入图片说明](4.jpg)
+
+##### 勾选后点击确定，重启电脑
+
+##### 重启完成后，找到Microsoft Store，也就是win自带的应用商店，搜索Ubuntu
+
+![输入图片说明](5.jpg)
+
+##### 安装自己喜欢的版本，推荐稳定的18.04或者22.04，当然都是可以的
+
+##### 安装好后，打开，第一次打开会显示installing xxxxx什么的，是在进行安装，请耐心等待，出现xxxxnewNAME什么的，就是需要你配置用户名，配置用户名之后，回车，会出现xxxxxnewPASSWORD也就是需要你配置密码
+
+#### 注意这里密码是不显示的，不是不让输或者bug，请认真输入因为有确认密码
+
+##### 出现xxxxx~#什么的就说明配置好了，可以开始使用，输入
+
+```
+sudo -i
+```
+
+##### 获取电脑或服务器的root权限，这里需要你输入刚刚配置的Ubuntu密码，输入正确后回车，执行以下代码更新插件包以及安装脚本（和手机安装方式一样）
+
+```
+apt update && apt install curl -y
+```
+
+```
+bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)
+```
