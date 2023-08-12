@@ -29,22 +29,22 @@ yz=$(head -n 1 "${HOME}/.Yunzai")
  
 #写入快捷键
     echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && cd Yunzai-Bot && node app' /usr/bin/qd
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && cd Yunzai-Bot && node app' /usr/bin/qd
     chmod +x /usr/bin/qd
     echo echo 后台启动中... > /usr/bin/htqd
-	sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm start' /usr/bin/htqd
+	sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && cd Yunzai-Bot && pnpm start' /usr/bin/htqd
 	chmod +x /usr/bin/htqd
     echo echo 查看log > /usr/bin/log
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm run log' /usr/bin/log 
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && cd Yunzai-Bot && pnpm run log' /usr/bin/log 
     chmod +x /usr/bin/log
     echo echo 停止叽叽人等下哦... > /usr/bin/stop
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm stop' /usr/bin/stop
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && cd Yunzai-Bot && pnpm stop' /usr/bin/stop
     chmod +x /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod +x /usr/bin/bc
     echo echo 已进入bot根目录 > /usr/bin/gml
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd ~$yz && cd Yunzai-Bot && exec bash -i' /usr/bin/gml
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && cd Yunzai-Bot && exec bash -i' /usr/bin/gml
     chmod +x /usr/bin/gml
 
 cd ~
@@ -319,9 +319,9 @@ function start()
 	if [ -e $yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && cd Yunzai-Bot && node app'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && cd Yunzai-Bot && node app'
 	sleep 1s
-	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd ~$yz && cd Yunzai-Bot && node app
+	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && cd Yunzai-Bot && node app
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -335,9 +335,9 @@ function stop()
 {
 	if [ -e /$yz ];then
 	echo '正在关闭叽叽人'
-    echo 'cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm stop'    
+    echo 'cd ~ && cd $yz && cd Yunzai-Bot && pnpm stop'    
 	sleep 1s
-	cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm stop
+	cd ~ && cd $yz && cd Yunzai-Bot && pnpm stop
 	else
 	echo '你装叽叽人了吗?'
 	sleep 1s
@@ -374,7 +374,7 @@ function shortcuts()
 function resetbotqq()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
-    cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm run login
+    cd ~ && cd $yz && cd Yunzai-Bot && pnpm run login
 }
 
 
@@ -398,9 +398,9 @@ function htstart()
 	if [ -e /$yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm start'
+    echo 'cd ~ && cd $yz && cd Yunzai-Bot && pnpm start'
 	sleep 1s
-	cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm start
+	cd ~ && cd $yz && cd Yunzai-Bot && pnpm start
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -508,7 +508,7 @@ function pluginsindex()
 function deletegitplugin()
 {
 	clear
-    cd ~ && cd ~$yz && cd Yunzai-Bot 
+    cd ~ && cd $yz && cd Yunzai-Bot 
     bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletegit.sh)
         PluginIndex
         PluginIndexNum
@@ -538,7 +538,7 @@ done
 function deletejs()
 {
 	clear
-    cd ~ && cd ~$yz && cd Yunzai-Bot 
+    cd ~ && cd $yz && cd Yunzai-Bot 
     bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletejs.sh)
         PluginIndex
         PluginIndexNum
@@ -716,7 +716,7 @@ function subid()
 function icqq()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	QQ-repaire-list
@@ -741,7 +741,7 @@ QQ-repaire-num
 function oicq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
+    cd ~ && cd $yz && cd Yunzai-Bot && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -750,7 +750,7 @@ function oicq-repaire()
 function icqq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -759,7 +759,7 @@ function icqq-repaire()
 function pnpminstall()
 {
     echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
-    cd ~ && rm -rf $yz/node_modules && cd ~ && cd ~$yz && cd Yunzai-Bot && pnpm install
+    cd ~ && rm -rf $yz/node_modules && cd ~ && cd $yz && cd Yunzai-Bot && pnpm install
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
