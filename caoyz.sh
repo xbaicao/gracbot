@@ -1,31 +1,31 @@
 #!/bin/bash
 
+# 配置文件
 target_file="$HOME/.Yunzai"
 
-if [ -f "$target_file" ]; then
-  echo -e "\033[32m校验成功\033[0m"
-else
+if [ ! -f "$target_file" ]; then
   echo -e "\033[33m初始化文件中\033[0m"
   sleep 0.3
-
+  
   # 指定可能的文件列表，按优先级排序
-  files=("/root/Yunzai-Bot/" "/root/.fox@bot/Yunzai-Bot/" "/root/Miao-Yunzai/" "/root/.fox@bot/Miao-Yunzai/" "/root/TRSS-Yunzai/" "/root/.fox@bot/TRSS-Yunzai/")
-
-  # 遍历文件列表，找到存在的文件并写入目标文件
+  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai")
+  
+  # 遍历文件列表，找到存在的文件并写入配置文件
   for file in "${files[@]}"; do
     if [ -f "$file" ]; then
       echo "$file" > "$target_file"
       break
     fi
   done
-
+  
+  # 如果没找到，则跳过写入空文件
   if [ ! -f "$target_file" ]; then
-    rm -f "$target_file"
-    # 如果都找不到，直接跳过写入留空
+    touch "$target_file"
   fi
 fi
-#定义bot路径
-yz=$(head -n 1 "${HOME}/.Yunzai")
+
+# 定义云崽路径
+Yz=$(head -n 1 "$target_file")
  
 #写入快捷键
     echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
