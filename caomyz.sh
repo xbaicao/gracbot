@@ -267,6 +267,7 @@ function stop()
 	caoaboutmiaoyunzai
 	storagenumber
 	fi
+}
 
 #figlet要用到，不管咋样装上好了
 if [ $(id -u) == 0 ];then
