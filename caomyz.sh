@@ -1,20 +1,5 @@
 #!/bin/bash
 
-echo echo 前台启动rediis.喵版叽叽人等... > /usr/bin/mqd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Miao-Yunzai && node app' /usr/bin/mqd
-    chmod 777 /usr/bin/mqd
-    echo echo 后台启动中... > /usr/bin/mhtqd
-	sed -i -e '1a cd ~/Miao-Yunzai && pnpm start' /usr/bin/mhtqd
-	chmod 777 /usr/bin/mhtqd
-    echo echo 查看log > /usr/bin/mlog
-    sed -i -e '1a cd ~/Miao-Yunzai && pnpm run log' /usr/bin/mlog 
-    chmod 777 /usr/bin/mlog
-    echo echo 停止喵版叽叽人等下哦... > /usr/bin/mstop
-    sed -i -e '1a cd ~/Miao-Yunzai && pnpm stop' /usr/bin/mstop
-    chmod 777 /usr/bin/mstop
-    echo echo 启动脚本中 > /usr/bin/bcm
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)' /usr/bin/bcm
-    chmod 777 /usr/bin/bcm
 cd ~
 
 function caoaboutmiaoyunzai()
@@ -23,7 +8,9 @@ function caoaboutmiaoyunzai()
     cat <<cao
 
 1.部署喵版叽叽人
-2.启动
+
+2.前台启动
+
 3.关闭
 
 cao
@@ -245,24 +232,6 @@ function miaoyzinstall()
 		sleep 1s
 	fi
     cd ~/Miao-Yunzai && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
-    
-#启动快捷键 
-    echo echo 前台启动redis.喵版叽叽人等... > /usr/bin/mqd
-    sed -i -e '1a redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Miao-Yunzai && node app' /usr/bin/mqd
-    chmod 777 /usr/bin/mqd
-    echo echo 后台启动中... > /usr/bin/mhtqd
-	sed -i -e '1a cd ~/Miao-Yunzai && pnpm start' /usr/bin/mhtqd
-	chmod 777 /usr/bin/mhtqd
-    echo echo 查看log > /usr/bin/mlog
-    sed -i -e '1a cd ~/Miao-Yunzai && pnpm run log' /usr/bin/mlog 
-    chmod 777 /usr/bin/mlog
-    echo echo 停止喵版叽叽人等下哦 ...> /usr/bin/mstop
-    sed -i -e '1a cd ~/Miao-Yunzai && pnpm stop' /usr/bin/mstop
-    chmod 777 /usr/bin/mstop
-    echo echo 启动脚本中 > /usr/bin/bcm
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)' /usr/bin/bcm
-    chmod 777 /usr/bin/bcm
-   
 	clear
     exit
 }
