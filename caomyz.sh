@@ -268,11 +268,18 @@ function stop()
 	storagenumber
 	fi
 
-#脚本多处使用figlet，干脆直接检测一下装上得了
+#figlet要用到，不管咋样装上好了
 if [ $(id -u) == 0 ];then
     if ! type figlet >/dev/null 2>&1; then
         apt-get update
         apt-get install figlet -y
     fi
-    caoaboutmiaoyunzai
-	storagenumber
+    clear
+    echo 
+        caoaboutmiaoyunzai
+	    storagenumber
+    fi		
+else
+    echo '运行环境出现问题咯'
+    echo '手机用户确认容器状态，服务器用户确认root状态'
+fi
