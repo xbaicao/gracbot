@@ -55,22 +55,39 @@ function caoaboutyunzai()
     cat <<cao
 
 1.部署叽叽人(云崽)
+
 2.启动
+
 3.关闭
+
 4.查看快捷键
+
 5.重置叽叽人登录
+
 6.更换主人QQ
+
 7.后台启动叽叽人
+
 8.插件管理
+
 9.修复（遇到报错，或者出现了什么奇奇怪怪的问题，看这里）
+
 10.安装ffmpeg
+
 11.安装python3.10.0
+
 12.自建本地接口api签名（手机可部署）
+
 13.api签名使用方法
+
 14.报错237修复
+
 99.自定义bot路径
+
 100.一键卸载关于bot所有相关内容
+
 0.退出
+
 00.此项为百草测试项，误点请ctrl+c退出
 
 cao
@@ -361,7 +378,7 @@ function shortcuts()
     echo -e "后台启动叽叽人\033[47;35mhtqd\033[0m"
     echo -e "查看叽叽人日志\033[47;35mlog\033[0m"
     echo -e "停止叽叽人运行\033[47;35mstop\033[0m"
-    echo -e "进入bot根目录\033[47;35mbot\033[0m"
+    echo -e "进入bot根目录\033[47;35mgml\033[0m"
     echo
     echo
     echo
@@ -417,11 +434,17 @@ function PluginIndex()
 	clear
     cat <<cao
 0.退出脚本
+
 1.返回
+
 2.插件索引
-3.删除插件（git插件）
-4.更新全部git插件
+
+3.更新全部git插件
+
+4.删除插件（git插件）
+
 5.删除插件（js插件）
+
 6.插件安装教程
 cao
 }
@@ -440,10 +463,10 @@ function PluginIndexNum()
             pluginsindex
             ;;
 		3)
-            deletegitplugin
+            updateplugins
 			;;
         4)
-            updateplugins
+            deletegitplugin
             ;;
         5)
             deletejs
@@ -504,23 +527,12 @@ function pluginsindex()
     PluginIndexNum
 }
 
-#删除git插件
-function deletegitplugin()
-{
-	clear
-    cd ~ && cd $yz && cd Yunzai-Bot 
-    bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletegit.sh)
-        PluginIndex
-        PluginIndexNum
-	
-}
-
 #更新全部git插件
 function updateplugins()
 {
     clear
     echo '正在更新所有插件'
-    cd ~ && cd ~$yz/plugins && cd Yunzai-Bot/plugins
+    cd ~ && cd $yz/plugins && cd Yunzai-Bot/plugins
     for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
@@ -532,6 +544,17 @@ done
     sleep 2s
 	PluginIndex
     PluginIndexNum
+}
+
+#删除git插件
+function deletegitplugin()
+{
+	clear
+    cd ~ && cd $yz && cd Yunzai-Bot 
+    bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletegit.sh)
+        PluginIndex
+        PluginIndexNum
+	
 }
 
 #删除js插件
