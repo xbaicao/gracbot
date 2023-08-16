@@ -13,6 +13,8 @@ function caoaboutmiaoyunzai()
 
 3.关闭
 
+0.退出脚本
+
 cao
 }
 function storagenumber()
