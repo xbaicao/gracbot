@@ -274,11 +274,8 @@ if [ $(id -u) == 0 ];then
         apt-get update
         apt-get install figlet -y
     fi
-    clear
-    echo 
         caoaboutmiaoyunzai
-	    storagenumber
-    fi		
+	    storagenumber		
 else
     echo '运行环境出现问题咯'
     echo '手机用户确认容器状态，服务器用户确认root状态'
