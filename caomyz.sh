@@ -304,5 +304,3 @@ function stop()
         apt-get update
         apt-get install figlet -y
     fi
-        caoaboutmiaoyunzai
-        storagenumber
