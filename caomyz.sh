@@ -276,7 +276,3 @@ if [ $(id -u) == 0 ];then
     fi
     caoaboutmiaoyunzai
 	storagenumber
-else
-    echo '当前运行环境不支持！'
-    echo '手机用户请确保是否已安装并进入容器内，服务器用户请确保是否已切换root'
-fi
