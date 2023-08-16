@@ -44,7 +44,7 @@ Yz=$(head -n 1 "$target_file")
     sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
     chmod +x /usr/bin/bc
     echo echo 已进入bot根目录 > /usr/bin/gml
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && cd Yunzai-Bot && exec bash -i' /usr/bin/gml
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && exec bash -i && cd Yunzai-Bot' /usr/bin/gml
     chmod +x /usr/bin/gml
 
 cd ~
