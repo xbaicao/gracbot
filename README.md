@@ -29,6 +29,12 @@
 
 #### 先输入u进入容器
 
+#### 手动进入容器
+```
+cd ~/Termux-Linux/Ubuntu
+./start-ubuntu.sh
+```
+
 #### 务必先进入容器在执行操作!!!
 ```
 apt update && apt install curl -y
