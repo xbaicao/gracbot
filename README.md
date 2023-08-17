@@ -29,7 +29,7 @@
 
 #### 先输入u进入容器
 
-#### 手动进入容器
+#### 不想输入u也可以选择手动进入容器
 ```
 cd ~/Termux-Linux/Ubuntu
 ./start-ubuntu.sh
