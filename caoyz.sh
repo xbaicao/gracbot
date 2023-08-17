@@ -574,7 +574,7 @@ function plugininstallhelp()
 	clear
 	echo
     echo
-    echo 'git大插件：cd $yz 复制粘贴进入bot根目录之后，复制粘贴回车执行插件库里心仪的插件帮助中给的git克隆地址，然后耐心等待安装'
+    echo 'git大插件：在home界面也就是root@xxxx那个地方输入脚本快捷指令gml进入bot根目录之后，插件库里心仪的插件帮助中给的git克隆地址，然后耐心等待安装'
     echo
     echo 'gitee是国内服务器，github是国外服务器，根据情况选择，推荐有gitee就用gitee'
     echo
