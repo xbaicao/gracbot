@@ -532,7 +532,7 @@ function updateplugins()
 {
     clear
 echo -e "正在更新所有git插件"
-cd ~ && cd $yzplugins
+cd ~ && cd $yz/plugins
 for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
