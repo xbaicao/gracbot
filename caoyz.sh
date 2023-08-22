@@ -532,7 +532,7 @@ function updateplugins()
 {
     clear
     echo '正在更新所有插件'
-    cd ~ && cd $yz && cd plugins && cd Yunzai-Bot/plugins
+    cd ~ && cd $yz && cd plugins
     for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
