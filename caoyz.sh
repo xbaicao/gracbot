@@ -8,7 +8,7 @@ if [ ! -f "$target_file" ]; then
   sleep 0.3
   
   # 指定可能的文件列表，按优先级排序
-  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai")
+  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai" "/root/.fox@bot/Yunzai-Bot" "/root/.fox@bot/Miao-Yunzai" "/root/.fox@bot/TRSS-Yunzai")
   
   # 遍历文件列表，找到存在的文件并写入配置文件
   for file in "${files[@]}"; do
@@ -532,7 +532,7 @@ function updateplugins()
 {
     clear
 echo -e "正在更新所有git插件"
-cd ~ && cd $yz && exec bash -i && cd plugins
+cd ~ && cd $yzplugins
 for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
