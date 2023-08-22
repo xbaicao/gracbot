@@ -531,9 +531,9 @@ function pluginsindex()
 function updateplugins()
 {
     clear
-    echo '正在更新所有插件'
-    cd ~ && cd $yz && cd plugins
-    for d in */; do
+echo -e "正在更新所有git插件"
+cd ~ && cd $yz && cd plugins
+for d in */; do
   (cd "$d" && git pull)
   if [ $(git rev-parse HEAD) = "$(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's!/! !g') | cut -f1)" ]; then
     last_commit_date=$(cd "$d" && git log -1 --format='%cd' --date=format:'%Y-%-m-%-d %H:%M')
