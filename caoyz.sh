@@ -1030,6 +1030,10 @@ if [ $(id -u) == 0 ];then
     echo '1-bot管理and云崽安装     2-喵崽安装'
     echo '1-bot管理and云崽安装     2-喵崽安装'
     echo
+    echo
+    echo
+    echo '脚本打开快捷键bc(需先进入容器快捷键u)'
+    echo
     echo '3-除选项外任意键直接退出'
     echo
     echo
