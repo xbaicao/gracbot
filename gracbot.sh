@@ -800,9 +800,9 @@ function loginfrequently()
 function apisignaturedfl()
 {
     echo '我懒得写，所以调用等风来的自建脚本'
-    echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
+    echo 'bash <(curl -sL gitee.com/Wind-is-so-strong/sign/raw/master/index.sh)'
 	sleep 0.5s
-	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
+	bash <(curl -sL gitee.com/Wind-is-so-strong/sign/raw/master/index.sh)
 }
 
 #自定义bot路径
