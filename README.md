@@ -23,7 +23,7 @@
 ### 开始安装
 1.  打开终端输入以下代码安装Ubuntu18.04
 ```
- curl -sL https://gitee.com/cao100/caobot.sh/raw/master/u.sh | bash
+ curl -sL https://gitee.com/gracc/gracbot/raw/master/u.sh | bash
 ```
 装完容器后输入u进入容器，然后按顺序输入以下代码并回车（更新）
 
@@ -41,7 +41,7 @@ apt update && apt install curl -y
 ```
 #### 执行以下代码一键安装脚本（自备容器可直接复制粘贴，没有容器请先安装容器）(快捷键打不开请重新执行这条指令）
 ```
-bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)
+bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracbot.sh)
 ```
 #### 后续打开脚本快捷键bc(别忘了打开终端后先u进入容器)
 
@@ -95,5 +95,5 @@ apt update && apt install curl -y
 ```
 
 ```
-bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)
+bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracbot.sh)
 ```
