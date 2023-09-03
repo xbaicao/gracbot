@@ -7,7 +7,7 @@ function caoaboutmiaoyunzai()
 	clear
     cat <<cao
 
-1.部署喵版叽叽人
+1.部署喵崽
 
 2.前台启动
 
@@ -50,7 +50,7 @@ function storagenumber()
 function miaoyzinstall()
 {	
 	clear
-	echo '正在进行喵版叽叽人部署，别断网了'
+	echo '正在进行喵崽部署，别断网了'
     echo 'yunzai-install'
 	sleep 3s
 
@@ -145,7 +145,7 @@ function miaoyzinstall()
 #克隆项目
     cd ~/
 	if [ -e Miao-Yunzai ];then
-		echo -e '已有喵版叽叽人文件或同名文件\n请选择删除文件重新下载，或选择忽略'
+		echo -e '已有喵崽文件或同名文件\n请选择删除文件重新下载，或选择忽略'
 		read -p '输入1删除并重新下载，输入0忽略（别忘记回车）：' number
 		if [ $number == 1 ];then
 			#删除文件夹
@@ -153,19 +153,19 @@ function miaoyzinstall()
 			rm -rf Miao-Yunzai
 			echo '删除完成'
 			sleep 1s
-			echo '重新部署喵版叽叽人项目'
+			echo '重新部署喵崽项目'
 			sleep 1s
 			git clone --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git
 			sleep 1s
-			echo '喵版叽叽人项目部署完成'
+			echo '喵崽项目部署完成'
 		elif [ $number == 0 ];then
 			echo '忽略，不重下项目文件'
 		fi
 	else
-		echo '正在下载喵版叽叽人项目文件'
+		echo '正在下载喵崽项目文件'
 		sleep 1s
 		git clone --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git
-		echo '喵版叽叽人项目文件下完啦'
+		echo '喵崽项目文件下完啦'
 		sleep 3s
 	fi
 
@@ -177,7 +177,7 @@ function miaoyzinstall()
     npm install pnpm -g
 	ln -sf /home/node17.9.0/bin/pnpm /usr/local/bin
     pnpm install -P
-    echo '喵版叽叽人依赖成功部署'
+    echo '喵崽依赖成功部署'
 	sleep 1.5s
 	
 #检查云崽安装情况，若有就进行数据迁移
@@ -238,33 +238,33 @@ function miaoyzinstall()
     exit
 }
 
-#启动喵版叽叽人
+#启动喵崽
 function start()
 {
 	if [ -e /root/Miao-Yunzai ];then
     clear
-    echo '喵版叽叽人，启动!'
+    echo '喵崽，启动!'
     echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Miao-Yunzai && node app'
 	sleep 1s
 	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~/Miao-Yunzai && node app
 	else
-	echo '先安装喵版叽叽人再说吧！'
+	echo '先安装喵崽再说吧！'
 	sleep 1s
 	caoaboutmiaoyunzai
 	storagenumber
 	fi
 }
 
-#关闭喵版叽叽人
+#关闭喵崽
 function stop()
 {
 	if [ -e /root/Miao-Yunzai ];then
-	echo '正在关闭喵版叽叽人'
+	echo '正在关闭喵崽'
     echo 'cd ~/Miao-Yunzai && pnpm stop'    
 	sleep 1s
 	cd ~/Miao-Yunzai && pnpm stop
 	else
-	echo '你装喵版叽叽人了吗?'
+	echo '你装喵崽了吗?'
 	sleep 1s
 	caoaboutmiaoyunzai
 	storagenumber
