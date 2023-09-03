@@ -876,21 +876,23 @@ if [ $(id -u) == 0 ];then
         apt-get install figlet -y
     fi
 	clear
-    echo '阁下想安装哪个叽叽人呢（作者我用的是云崽）'
+    echo '欢迎使用百草的脚本，作者联系qq1414716594，qq群117812776'
     echo
     echo
     echo
-    echo '1-bot管理and云崽安装     2-喵崽安装'
-    echo '1-bot管理and云崽安装     2-喵崽安装'
-    echo '1-bot管理and云崽安装     2-喵崽安装'
-    echo '1-bot管理and云崽安装     2-喵崽安装'
-    echo '1-bot管理and云崽安装     2-喵崽安装'
+    echo '1-bot管理     2-云崽安装     3-喵崽安装'
+    echo '1-bot管理     2-云崽安装     3-喵崽安装'
+    echo '1-bot管理     2-云崽安装     3-喵崽安装'
+    echo '1-bot管理     2-云崽安装     3-喵崽安装'
+    echo '1-bot管理     2-云崽安装     3-喵崽安装'
     echo
     echo
     echo
     echo '脚本打开快捷键bc(需先进入容器快捷键u)'
     echo '脚本打开快捷键bc(需先进入容器快捷键u)'
     echo '脚本打开快捷键bc(需先进入容器快捷键u)'
+    echo
+    echo
     echo
     echo '3-除选项外任意键直接退出'
     echo
@@ -900,9 +902,9 @@ if [ $(id -u) == 0 ];then
 		caoaboutyunzai
         storagenumber
 	elif [ $change == 2 ];then
-		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracmyz.sh)
-    elif [ $change == 2 ];then
 		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracyz.sh)
+    elif [ $change == 3 ];then
+		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracmyz.sh)
     else
         read -s -n1 -p "直接回车自动退出"
         clear
