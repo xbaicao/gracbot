@@ -901,6 +901,8 @@ if [ $(id -u) == 0 ];then
         storagenumber
 	elif [ $change == 2 ];then
 		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracmyz.sh)
+    elif [ $change == 2 ];then
+		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracyz.sh)
     else
         read -s -n1 -p "直接回车自动退出"
         clear
