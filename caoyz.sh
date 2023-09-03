@@ -8,7 +8,7 @@ if [ ! -f "$target_file" ]; then
   sleep 0.3
   
   # 指定可能的文件列表，按优先级排序
-  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai" "/root/.fox@bot/Yunzai-Bot" "/root/.fox@bot/Miao-Yunzai" "/root/.fox@bot/TRSS-Yunzai")
+  files=("/root/Yunzai-Bot" "/root/Miao-Yunzai" "/root/TRSS-Yunzai" "/root/.fox@bot/Yunzai-Bot" "/root/.fox@bot/Miao-Yunzai" "/root/.fox@bot/TRSS-Yunzai" "/root/GoBox/Yunzai-Bot" "/root/GoBox/Miao-Yunzai")
   
   # 遍历文件列表，找到存在的文件并写入配置文件
   for file in "${files[@]}"; do
@@ -1032,6 +1032,8 @@ if [ $(id -u) == 0 ];then
     echo
     echo
     echo
+    echo '脚本打开快捷键bc(需先进入容器快捷键u)'
+    echo '脚本打开快捷键bc(需先进入容器快捷键u)'
     echo '脚本打开快捷键bc(需先进入容器快捷键u)'
     echo
     echo '3-除选项外任意键直接退出'
