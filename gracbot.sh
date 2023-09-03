@@ -41,7 +41,7 @@ Yz=$(head -n 1 "$target_file")
     sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && pnpm stop' /usr/bin/stop
     chmod +x /usr/bin/stop
     echo echo 启动脚本中 > /usr/bin/bc
-    sed -i -e '1a bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caoyz.sh)' /usr/bin/bc
+    sed -i -e '1a bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracbot.sh)' /usr/bin/bc
     chmod +x /usr/bin/bc
     echo echo 已进入bot根目录 > /usr/bin/gml
     sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && exec bash -i && cd Yunzai-Bot' /usr/bin/gml
@@ -53,6 +53,8 @@ function caoaboutyunzai()
 {
 	clear
     cat <<cao
+
+第一次使用脚本请先使用99选项定义bot路径
 
 1.部署叽叽人(云崽)
 
@@ -200,7 +202,7 @@ function yzinstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 #下载nodejs
-        git clone --depth=1 https://gitee.com/cao100/caobot.sh.git ./node/
+        git clone --depth=1 https://gitee.com/gracc/gracbot.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
@@ -556,7 +558,7 @@ function deletegitplugin()
 {
 	clear
     cd ~ && cd $yz && cd Yunzai-Bot 
-    bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletegit.sh)
+    bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/deletegit.sh)
         PluginIndex
         PluginIndexNum
 	
@@ -567,7 +569,7 @@ function deletejs()
 {
 	clear
     cd ~ && cd $yz && cd Yunzai-Bot 
-    bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/deletejs.sh)
+    bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/deletejs.sh)
         PluginIndex
         PluginIndexNum
 	
@@ -705,7 +707,7 @@ function device()
     sed -i '/platform/d' /$yz/config/config/qq.yaml
     echo platform: 4 >> /$yz/config/config/qq.yaml
     cd $yz/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/gracc/gracbot/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -727,7 +729,7 @@ function subid()
     echo platform: 4 >> /$yz/config/config/qq.yaml
     sed -i 's/537064315/537128930/' /$yz/node_modules/oicq/lib/core/device.js
     cd $yz/data/$QQnumber
-    curl -o device-$QQnumber.json https://gitee.com/cao100/caobot.sh/raw/master/QQrepaire
+    curl -o device-$QQnumber.json https://gitee.com/gracc/gracbot/raw/master/QQrepaire
 	echo '已尝试进行修复'
 	read -p '是否立刻启动叽叽人，1启动，0不启动' num
 	if [ $num == 1 ];then
@@ -861,7 +863,7 @@ function ffmpeginstall()
     if ! type git >/dev/null 2>&1; then
         apt update && apt install git -y
     fi
-    git clone --depth=1 https://gitee.com/cao100/caobot.sh.git
+    git clone --depth=1 https://gitee.com/gracc/gracbot.git
     if [ $(uname -m) == "aarch64" ]; then
         cp /root/yunzai-ffmpeg/arm.tar.gz /home/
         rm -rf /root/yunzai-ffmpeg
@@ -896,7 +898,7 @@ function pythoninstall3.10.0()
     apt update
     apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
 #下载python3.10.0压缩包
-    git clone --depth=1 https://gitee.com/cao100/caobot.sh
+    git clone --depth=1 https://gitee.com/gracc/gracbot
     cp /root/caoyz.sh/Python-3.10.0.tgz /home/
     cd /home/
 #解压
@@ -1058,7 +1060,7 @@ if [ $(id -u) == 0 ];then
 		caoaboutyunzai
         storagenumber
 	elif [ $change == 2 ];then
-		bash <(curl -sL https://gitee.com/cao100/caobot.sh/raw/master/caomyz.sh)
+		bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracmyz.sh)
     else
         read -s -n1 -p "直接回车自动退出"
         clear
