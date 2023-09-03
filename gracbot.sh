@@ -60,35 +60,33 @@ function caoaboutyunzai()
 第一次使用脚本请先使用99选项定义bot路径
 第一次使用脚本请先使用99选项定义bot路径
 
-1.部署叽叽人(云崽)
+1.启动叽叽人
 
-2.启动
+2.关闭叽叽人
 
-3.关闭
+3.查看快捷键
 
-4.查看快捷键
+4.重置叽叽人登录
 
-5.重置叽叽人登录
+5.更换主人QQ
 
-6.更换主人QQ
+6.后台启动叽叽人
 
-7.后台启动叽叽人
+7.插件管理
 
-8.插件管理
+8.修复（遇到报错，或者出现了什么奇奇怪怪的问题，看这里）
 
-9.修复（遇到报错，或者出现了什么奇奇怪怪的问题，看这里）
+9.安装ffmpeg
 
-10.安装ffmpeg
+10.安装python3.10.0
 
-11.安装python3.10.0
+11.自建本地接口api签名（手机可部署）（调用白狐）
 
-12.自建本地接口api签名（手机可部署）（调用白狐）
+12.api签名使用方法
 
-13.api签名使用方法
+13.报错237修复
 
-14.报错237修复
-
-15.自建本地接口api签名（手机可部署）（调用等风来）
+14.自建本地接口api签名（手机可部署）（调用等风来）
 
 99.自定义bot路径
 
@@ -112,48 +110,45 @@ function storagenumber()
             exit 0
             ;;
         1)
-            yzinstall
-            ;;
-        2)
             start
             ;;
-        3)  
+        2)  
             stop
             ;;
-        4)  
+        3)  
             shortcuts
             ;;
-        5)
+        4)
             resetbotqq
             ;;
-        6)
+        5)
             resetmasterqq
             ;;
-        7)
+        6)
             htstart
             ;;
-        8)
+        7)
             plugins
             ;;
-        9)
+        8)
             error
             ;;
-        10)
+        9)
             ffmpeginstall
             ;;
-        11)
+        10)
             pythoninstall3.10.0
             ;;
-        12)
+        11)
             apisignaturebh
             ;;
-        13)
+        12)
             useapi
             ;;
-        14)
+        13)
             loginfrequently
             ;;
-        15)
+        14)
             apisignaturedfl
             ;;
         99)
@@ -180,169 +175,6 @@ function storagenumber()
             storagenumber
             ;;
     esac
-}
-    
-function yzinstall()
-{	
-	clear
-	echo '正在进行叽叽人部署，别断网了'
-    echo 'yunzai-install'
-	sleep 3s
-
-#git
-    if ! type git >/dev/null 2>&1; then
-        echo '准备安装git'
-        echo 'apt install git -y'
-	    sleep 0.5s
-        apt update
-        apt install git -y
-        echo 'git装完'
-        sleep 1s
-    else
-        echo '已经装过了，就不装了'
-        sleep 1.5s
-    fi
-    
-#nodejs
-	if ! type npm >/dev/null 2>&1; then
-        rm -rf /root/node
-		echo '看起来没装过，要装一下'
-        echo '准备安装nodejs'
-	    sleep 0.5s
-#下载nodejs
-        git clone --depth=1 https://gitee.com/gracc/gracbot.git ./node/
-        if [ $(uname -m) == "aarch64" ]; then
-            cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
-            rm -rf /root/node
-            cd /home/
-#解压
-            mkdir node17.9.0
-            tar -zxvf node-v17.9.0-linux-arm64.tar.gz -C node17.9.0 --strip-components 1
-            rm -rf node-v17.9.0-linux-arm64.tar.gz
-        elif [ $(uname -m) == "x86_64" ]; then
-            cp /root/node/node-v17.9.0-linux-x64.tar.gz /home/
-            rm -rf /root/node
-            cd /home/
-#解压
-            mkdir node17.9.0
-            tar -zxvf node-v17.9.0-linux-x64.tar.gz -C node17.9.0 --strip-components 1
-            rm -rf node-v17.9.0-linux-x64.tar.gz
-        fi
-        
-#软链接
-        ln -sf /home/node17.9.0/bin/node /usr/local/bin
-        ln -sf /home/node17.9.0/bin/npm /usr/local/bin
-        ln -sf /home/node17.9.0/bin/npx /usr/local/bin
-        PATH=:/usr/local/node17.9.0/bin:$PATH
-        if ! type npm >/dev/null 2>&1; then
-            echo '安装失败了，重新用脚本试一下或者手装吧';
-            exit
-        else
-            echo '安装成功'
-            sleep 1.5s
-        fi
-    else
-        echo '已经安装了，别重装了'
-        sleep 1.5s
-	fi
-
-#redis
-    if ! type redis-server >/dev/null 2>&1; then
-        echo '安装并启动redis'
-        echo 'apt-get install redis -y && redis-server --daemonize yes --save 900 1 --save 300 10'
-	    sleep 0.5s
-        apt-get install redis -y
-        redis-server --daemonize yes --save 900 1 --save 300 10
-        echo 'redis安装and启动'
-	    sleep 1.5s
-    else
-        echo '已经装过了'
-        redis-server --daemonize yes --save 900 1 --save 300 10
-        echo '启动redis'
-    fi
-
-#安装chroimum
-    if ! type chromium-browser >/dev/null 2>&1; then
-	    echo '正在准备安装chromuim及中文字体'chro
-	    sleep 0.5
-        apt install chromium-browser -y
-        apt install -y --force-yes --no-install-recommends fonts-wqy-microhei
-	    echo '安装成功'
-	    sleep 1.5s
-    else
-        echo 'chromium有了,开始装字体'
-        sleep 0.5s
-        apt install -y --force-yes --no-install-recommends fonts-wqy-microhei
-        echo '安装成功'
-        sleep 1.5s
-    fi
-    
-#克隆项目
-    cd 
-	if [ -e Yunzai-Bot ];then
-		echo -e '已有叽叽人文件或同名文件\n请选择删除文件重新下载，或选择忽略'
-		read -p '输入1删除并重新下载，输入0忽略（别忘记回车）：' number
-		if [ $number == 1 ];then
-			#删除文件夹
-			echo '正在删除已有文件……'
-			rm -rf Yunzai-Bot
-			echo '删除完成'
-			sleep 1s
-			echo '重新部署叽叽人项目'
-			sleep 1s
-			git clone --depth=1 https://gitee.com/yoimiya-kokomi/Yunzai-Bot.git
-			sleep 1s
-			echo '叽叽人项目部署完成'
-		elif [ $number == 0 ];then
-			echo '忽略，不重下项目文件'
-		fi
-	else
-		echo '正在下载叽叽人项目文件'
-		sleep 1s
-		git clone --depth=1 https://gitee.com/yoimiya-kokomi/Yunzai-Bot.git
-		echo '叽叽人项目文件下完啦'
-		sleep 3s
-	fi
-
-#安装依赖
-    cd ~/Yunzai-Bot
-	echo '开始装依赖'
-    echo 'npm install pnpm -g'
-	sleep 1s
-    npm install pnpm -g
-	ln -sf /home/node17.9.0/bin/pnpm /usr/local/bin
-    pnpm install -P
-    echo '叽叽人依赖成功部署'
-	sleep 1.5s
-	
-#部署喵喵插件
-	echo '准备装喵喵插件'
-    sleep 1s
-	cd ~/Yunzai-Bot/plugins
-	if  [ -e miao-plugin ];then
-	read -p '已经装过了，要删除重下吗，输入1重下，0忽略：' num
-		if [ $num == 0 ];then
-			echo 'ok那就忽略，不下了'
-			sleep 1s
-		elif [ $num == 1 ];then
-			rm -rf miao-plugin
-			git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git
-			echo '已删除原文件重下'
-			sleep 1s
-		fi
-	else
-		git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git
-		echo '装好了'
-		sleep 1s
-	fi
-    cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation -w
-    echo '装一下依赖'
-    cd
-    cd ~/Yunzai-Bot
-    pnpm install
-	clear
-    caoaboutyunzai
-    storagenumber
 }
 
 #启动叽叽人
