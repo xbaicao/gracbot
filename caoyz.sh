@@ -76,11 +76,13 @@ function caoaboutyunzai()
 
 11.安装python3.10.0
 
-12.自建本地接口api签名（手机可部署）
+12.自建本地接口api签名（手机可部署）（调用白狐）
 
 13.api签名使用方法
 
 14.报错237修复
+
+15.自建本地接口api签名（手机可部署）（调用等风来）
 
 99.自定义bot路径
 
@@ -133,13 +135,16 @@ function storagenumber()
             pythoninstall3.10.0
             ;;
         12)
-            apisignature
+            apisignaturebh
             ;;
         13)
             useapi
             ;;
         14)
             loginfrequently
+            ;;
+        15)
+            apisignaturedfl
             ;;
         99)
             yzhome
@@ -911,10 +916,10 @@ function pythoninstall3.10.0()
     storagenumber
 }
 
-#自建本地接口api签名
-function apisignature()
+#自建本地接口api签名（白狐）
+function apisignaturebh()
 {
-    echo '我好懒，所以这里调用白狐自建脚本'
+    echo '我懒得写，所以调用白狐的自建脚本'
     echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
 	sleep 0.5s
 	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
@@ -947,6 +952,15 @@ function loginfrequently()
     read -s -n1 -p "按任意键或直接回车以返回"
 	caoaboutyunzai
     storagenumber
+}
+
+#自建本地接口api签名（等风来）
+function apisignaturedfl()
+{
+    echo '我懒得写，所以调用等风来的自建脚本'
+    echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
+	sleep 0.5s
+	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
 }
 
 #自定义bot路径
