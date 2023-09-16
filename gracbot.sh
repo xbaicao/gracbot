@@ -183,9 +183,9 @@ function start()
 	if [ -e $yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && cd Yunzai-Bot && node app'
+    echo 'redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && node app'
 	sleep 1s
-	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && cd Yunzai-Bot && node app
+	redis-server --daemonize yes --save 900 1 --save 300 10 && cd ~ && cd $yz && node app
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -199,9 +199,9 @@ function stop()
 {
 	if [ -e /$yz ];then
 	echo '正在关闭叽叽人'
-    echo 'cd ~ && cd $yz && cd Yunzai-Bot && pnpm stop'    
+    echo 'cd ~ && cd $yz && pnpm stop'    
 	sleep 1s
-	cd ~ && cd $yz && cd Yunzai-Bot && pnpm stop
+	cd ~ && cd $yz && pnpm stop
 	else
 	echo '你装叽叽人了吗?'
 	sleep 1s
@@ -238,7 +238,7 @@ function shortcuts()
 function resetbotqq()
 {
     redis-server --daemonize yes --save 900 1 --save 300 10
-    cd ~ && cd $yz && cd Yunzai-Bot && pnpm run login
+    cd ~ && cd $yz && pnpm run login
 }
 
 
@@ -262,9 +262,9 @@ function htstart()
 	if [ -e /$yz ];then
     clear
     echo '叽叽人，启动!'
-    echo 'cd ~ && cd $yz && cd Yunzai-Bot && pnpm start'
+    echo 'cd ~ && cd $yz && pnpm start'
 	sleep 1s
-	cd ~ && cd $yz && cd Yunzai-Bot && pnpm start
+	cd ~ && cd $yz && cd && pnpm start
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
