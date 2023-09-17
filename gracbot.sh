@@ -643,6 +643,9 @@ function puppeteer-false()
     echo 2.ubuntu20.04
     echo 3.ubuntu22.04
     echo 4.不知道？那这里为你自动检测
+    echo 5.降低浏览器版本为13.7.0
+    echo 6.添加环境变量
+    echo 7.添加环境变量2
     echo 0.返回
     read -p '请输入数字并回车：' num
     if [ $num == 1 ];then
@@ -668,6 +671,12 @@ function puppeteer-false()
         pnpm add puppeteer@13.7.0 -w
         echo 记住了，你的系统版本是ubuntu18.04
         sleep 1.5s
+    elif [ $num == 5 ];then
+        cd && cd $yz && pnpm add puppeteer@13.7.0
+    elif [ $num == 6 ];then 
+        export PUPPETEER_EXECUTABLE_PATH='$(command -v chromium)'
+    elif [ $num == 7 ];then
+        export PUPPETEER_EXECUTABLE_PATH='$(command -v chromium-browser)'
     elif [ $num == 0 ];then
         errorlist
 	    RepaireNum
@@ -877,7 +886,11 @@ if [ $(id -u) == 0 ];then
     fi
 	clear
     echo '欢迎使用百草的脚本，作者联系qq1414716594，qq群117812776'
-    echo
+    echo 第一次使用脚本请先使用管理界面脚本，99选项定义bot路径
+    echo 第一次使用脚本请先使用管理界面脚本，99选项定义bot路径
+    echo 第一次使用脚本请先使用管理界面脚本，99选项定义bot路径
+    echo 第一次使用脚本请先使用管理界面脚本，99选项定义bot路径
+    echo 第一次使用脚本请先使用管理界面脚本，99选项定义bot路径
     echo
     echo
     echo '1-bot管理     2-云崽安装     3-喵崽安装'
