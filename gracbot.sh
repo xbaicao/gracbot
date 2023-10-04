@@ -447,8 +447,10 @@ function errorlist()
 3.cannot find package 'icqq'
 4.puppeteer启动失败
 5.出现奇奇怪怪的东西，这里重装依赖尝试一下
-6.返回
-0.退出脚本
+6.更新pnpm
+7.更新依赖
+0.返回
+99.退出脚本
 
 run
 }
@@ -456,7 +458,7 @@ function RepaireNum()
 {
     read -p '出现什么报错就选哪个：' repaireNum
 	case $repaireNum in
-        0)
+        99)
 			exit
             ;;
         1)
@@ -474,7 +476,13 @@ function RepaireNum()
         5)
             pnpminstall
             ;;
-		6)
+        6)
+            updatepnpm
+            ;;
+        7)
+            pnpmi
+            ;;
+		0)
 			caoaboutyunzai
             storagenumber
 			;;
@@ -631,6 +639,24 @@ function pnpminstall()
     echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
     cd ~ && rm -rf $yz/node_modules && cd ~ && cd $yz && cd Yunzai-Bot && pnpm install
     echo '已尝试进行解决'
+    sleep 2s
+	errorlist
+	RepaireNum
+}
+function updatepnpm()
+{
+    echo '正在更新中，请耐心等待'
+    curl -sL https://gitee.com/gracc/gracbot/raw/master/cpnpm | bash
+    echo '已更新完成'
+    sleep 2s
+	errorlist
+	RepaireNum
+}
+function pnpmi()
+{
+    echo '正在更新中，请耐心等待'
+    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install -p
+    echo '已更新完成'
     sleep 2s
 	errorlist
 	RepaireNum
