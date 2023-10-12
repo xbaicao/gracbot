@@ -25,7 +25,7 @@ if [ ! -f "$target_file" ]; then
 fi
 
 # 定义云崽路径
-Yz=$(head -n 1 "$target_file")
+yz=$(head -n 1 "$target_file")
  
 #写入快捷键
     echo echo 前台启动rediis.叽叽人等... > /usr/bin/qd
