@@ -742,17 +742,17 @@ function ffmpeginstall()
     if ! type git >/dev/null 2>&1; then
         apt update && apt install git -y
     fi
-    git clone --depth=1 https://gitee.com/gracc/gracbot.git
+    git clone --depth=1 https://gitee.com/gracc/gracbot
     if [ $(uname -m) == "aarch64" ]; then
-        cp /root/yunzai-ffmpeg/arm.tar.gz /home/
-        rm -rf /root/yunzai-ffmpeg
+        cp /root/gracbot/arm.tar.gz /home/
+        rm -rf /root/gracbot
         cd /home/
         mkdir ffmpeg5.1.1
         tar -xvf arm.tar.gz -C ffmpeg5.1.1 --strip-components 1
         rm -rf arm.tar.gz
     elif [ $(uname -m) == "x86_64" ]; then
-        cp /root/yunzai-ffmpeg/amd.tar.gz /home/
-        rm -rf /root/yunzai-ffmpeg
+        cp /root/gracbot/amd.tar.gz /home/
+        rm -rf /root/gracbot
         cd /home/
         mkdir ffmpeg5.1.1
         tar -xvf amd.tar.gz -C ffmpeg5.1.1 --strip-components 1
@@ -778,7 +778,7 @@ function pythoninstall3.10.0()
     apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget make libbz2-dev -y
 #下载python3.10.0压缩包
     git clone --depth=1 https://gitee.com/gracc/gracbot
-    cp /root/caoyz.sh/Python-3.10.0.tgz /home/
+    cp /root/gracbot/Python-3.10.0.tgz /home/
     cd /home/
 #解压
     tar -zxvf Python-3.10.0.tgz
@@ -786,7 +786,7 @@ function pythoninstall3.10.0()
     ./configure --enable-optimizations
     make
     make install
-    rm -rf Python-3.10.0.tgz
+    rm -rf gracbot
 #软链接
     ln -sf /usr/local/bin/python3 /usr/bin/python
     ln -sf /usr/local/bin/pip3 /usr/bin/pip
