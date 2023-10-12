@@ -44,7 +44,7 @@ Yz=$(head -n 1 "$target_file")
     sed -i -e '1a bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/gracbot.sh)' /usr/bin/bc
     chmod +x /usr/bin/bc
     echo echo 已进入bot根目录 > /usr/bin/gml
-    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && exec bash -i && cd Yunzai-Bot' /usr/bin/gml
+    sed -i -e '1a yz=$(head -n 1 "${HOME}/.Yunzai") && cd ~ && cd $yz && exec bash -i' /usr/bin/gml
     chmod +x /usr/bin/gml
 
 cd ~
@@ -268,7 +268,7 @@ function htstart()
     echo '叽叽人，启动!'
     echo 'cd ~ && cd $yz && pnpm start'
 	sleep 1s
-	cd ~ && cd $yz && cd && pnpm start
+	cd ~ && cd $y && pnpm start
 	else
 	echo '先安装叽叽人再说吧！'
 	sleep 1s
@@ -401,7 +401,7 @@ done
 function deletegitplugin()
 {
 	clear
-    cd ~ && cd $yz && cd Yunzai-Bot 
+    cd ~ && cd $yz
     bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/deletegit.sh)
         PluginIndex
         PluginIndexNum
@@ -412,7 +412,7 @@ function deletegitplugin()
 function deletejs()
 {
 	clear
-    cd ~ && cd $yz && cd Yunzai-Bot 
+    cd ~ && cd $yz
     bash <(curl -sL https://gitee.com/gracc/gracbot/raw/master/deletejs.sh)
         PluginIndex
         PluginIndexNum
@@ -598,7 +598,7 @@ function subid()
 function icqq()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    cd ~ && cd $yz && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	QQ-repaire-list
@@ -623,7 +623,7 @@ QQ-repaire-num
 function oicq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd $yz && cd Yunzai-Bot && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
+    cd ~ && cd $yz && pnpm add image-size axios express multer body-parser jsonwebtoken systeminformation oicq -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -632,7 +632,7 @@ function oicq-repaire()
 function icqq-repaire()
 {
     echo '正在尝试进行解决……'
-    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install icqq@latest -w
+    cd ~ && cd $yz && pnpm install && pnpm install icqq@latest -w
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -641,7 +641,7 @@ function icqq-repaire()
 function pnpminstall()
 {
     echo '正在尝试进行解决,这里重建依赖的时间可能比较久'
-    cd ~ && rm -rf $yz/node_modules && cd ~ && cd $yz && cd Yunzai-Bot && pnpm install
+    cd ~ && rm -rf $yz/node_modules && cd ~ && cd $yz && pnpm install
     echo '已尝试进行解决'
     sleep 2s
 	errorlist
@@ -659,7 +659,7 @@ function updatepnpm()
 function pnpmi()
 {
     echo '正在更新中，请耐心等待'
-    cd ~ && cd $yz && cd Yunzai-Bot && pnpm install && pnpm install -p
+    cd ~ && cd $yz && pnpm install && pnpm install -p
     echo '已更新完成'
     sleep 2s
 	errorlist
