@@ -800,10 +800,10 @@ function pythoninstall3.10.0()
 #自建本地接口api签名（白狐）
 function apisignaturebh()
 {
-    echo '我懒得写，所以调用白狐的自建脚本'
-    echo 'bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)'
+    echo '我懒得写，所以调用白狐的脚本'
+    echo 'bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/Android/Ubuntu.sh)'
 	sleep 0.5s
-	bash <(curl -sL https://gitee.com/baihu433/Ubuntu-Yunzai/raw/master/QSignServer2.0.sh)
+	bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/Android/Ubuntu.sh)
 }
 
 #使用api签名教程
