@@ -803,7 +803,10 @@ function apisignaturebh()
     echo '我懒得写，所以调用白狐的脚本'
     echo 'bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/install.sh)'
 	sleep 0.5s
-	bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/install.sh)}
+	bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/install.sh)
+    caoaboutyunzai
+    storagenumber
+}
 
 #使用api签名教程
 function useapi()
