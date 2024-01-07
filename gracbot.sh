@@ -804,8 +804,7 @@ function apisignaturebh()
     echo 'bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/install.sh)'
 	sleep 0.5s
 	bash <(curl -sL https://gitee.com/baihu433/Yunzai-Bot-Shell/raw/master/install.sh)
-    caoaboutyunzai
-    storagenumber
+    bh
 }
 
 #使用api签名教程
