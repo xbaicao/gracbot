@@ -75,7 +75,7 @@ function yzinstall()
         echo '准备安装nodejs'
 	    sleep 0.5s
 #下载nodejs
-        git clone --depth=1 https://gitee.com/gracc/gracbot.git ./node/
+        git clone --depth=1 https://gitee.com/gracc/bcyznode.git ./node/
         if [ $(uname -m) == "aarch64" ]; then
             cp /root/node/node-v17.9.0-linux-arm64.tar.gz /home/
             rm -rf /root/node
