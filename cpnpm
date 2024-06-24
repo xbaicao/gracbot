@@ -1,0 +1,31 @@
+#!/bin/bash
+
+clear
+
+echo -e "\e[1;36m少女祈祷中...\e[0m"
+
+# URL模板
+url_template="https://mirrors.ustc.edu.cn/archlinux/extra/os/x86_64/"
+
+# 发送HTTP请求获取页面内容
+page_content=$(curl -s "$url_template")
+
+# 使用正则表达式提取版本号
+pattern='pnpm-([0-9]+\.[0-9]+\.[0-9]+)-1-any.pkg.tar.zst'
+if [[ $page_content =~ $pattern ]]; then
+    version="${BASH_REMATCH[1]}"
+    echo -e "\e[1;33m获取到pnpm版本号\e[0m : \e[1;32m$version\e[0m"
+
+
+    # 构建安装命令
+    install_command="pacman -U ${url_template}pnpm-${version}-1-any.pkg.tar.zst"
+    echo -e "\e[1;33m安装命令\e[0m : \e[1;31m$install_command\e[0m"
+
+
+    # 执行安装命令
+    $install_command
+else
+    echo -e "\e[1;31m 从网页获取pnpm版本号失败..\e[0m"
+fi
+
+exit

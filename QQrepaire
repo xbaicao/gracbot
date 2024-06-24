@@ -1,0 +1,18 @@
+{
+  "--begin--": "该设备由账号作为seed固定生成，账号不变则永远相同",
+  "product": "abcdefghijklmn",
+  "device": "qwertyuiop",
+  "board": "asdfghjkl",
+  "brand": "zxcvbnm",
+  "model": "qazwsxedcrfvtgb",
+  "wifi_ssid": "plmopkniokjbgh",
+  "bootloader": "edcrfvtgbinyh",
+  "android_id": "woeicmuednvushd",
+  "boot_id": "cndjxmskloqwsada",
+  "proc_version": "sdafadgdafe3dfasw",
+  "mac_address": "asfadfedfhtfhsea",
+  "ip_address": "dgshgnyfhsdrgfaq",
+  "imei": "dfstjfghtsgsfge4s",
+  "incremental": 1234567890,
+  "--end--": "修改后可能需要重新验证设备"
+}
